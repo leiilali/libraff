@@ -1,0 +1,26 @@
+.custom-tabs .ant-tabs-nav {
+    margin-bottom: 4px;
+}
+
+.custom-tabs .ant-tabs-ink-bar {
+    border-bottom: 3px solid #EE2E39;
+    border-radius: 2px;
+}
+
+:where(.css-dev-only-do-not-override-mc1tut).ant-tabs-top>.ant-tabs-nav::before {
+    border-bottom: 3px solid #f0f0f0;
+}
+
+:where(.css-dev-only-do-not-override-mc1tut).ant-tabs .ant-tabs-tab {
+    padding: 5px 0;
+}
+.custom-tabs .ant-tabs-tab-active .nunito-font {
+    color: #0f172a !important;
+  }
+
+.custom-tabs .ant-tabs-nav-list {
+    display: flex;
+    justify-content: center;
+    gap: 270px;
+}
+

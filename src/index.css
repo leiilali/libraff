@@ -1,0 +1,21 @@
+@import "tailwindcss";
+/* 
+@theme{
+  --breakpoint-xs: 355px;
+} */
+
+.container{
+  max-width: 1394px;
+  margin: 0 auto;
+  padding: 20px 10px;
+}
+.nunito-font {
+  font-family: 'Nunito', sans-serif;
+}
+
+
+.custon_shadow{
+  box-shadow: #00000059 0px 5px 15px;
+
+}
+

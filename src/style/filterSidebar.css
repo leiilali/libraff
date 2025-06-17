@@ -1,0 +1,135 @@
+/* Checked state box */
+.ant-checkbox-checked .ant-checkbox-inner {
+    background-color: #EF3441 !important;
+    border-color: #EF3441 !important;
+}
+
+/* Checked state hover */
+.ant-checkbox-checked:hover .ant-checkbox-inner {
+    background-color: #F3565E !important;
+    border-color: #F3565E !important;
+    box-shadow: none !important;
+}
+
+/* Remove default blue shadow on focus/active */
+.ant-checkbox-input:focus+.ant-checkbox-inner,
+.ant-checkbox-inner:focus,
+.ant-checkbox-input:active+.ant-checkbox-inner {
+    box-shadow: none !important;
+    outline: none !important;
+    border-color: #A2A2A2 !important;
+    /* neutral gray border on focus */
+}
+
+/* Unchecked hover - darker gray shadow */
+.ant-checkbox-wrapper:hover:not(.ant-checkbox-checked) .ant-checkbox-inner {
+    box-shadow: 0 0 5px 2px rgba(80, 80, 80, 0.3);
+    border-color: #7f7d7d;
+}
+
+/* Checkmark color (the tick) */
+.ant-checkbox-checked .ant-checkbox-inner::after {
+    border-color: white !important;
+    border-width: 2.5px !important;
+}
+
+/* Label text styling - optional */
+.ant-checkbox-wrapper {
+    user-select: none;
+}
+
+.custom-checkbox .ant-checkbox-inner {
+    width: 24px;
+    height: 24px;
+    border-radius: 8px;
+    /* keep rounded corners if you want */
+    border: 1px solid #A2A2A2;
+    background-color: white;
+    transition: all 0.3s;
+}
+
+/* Make the checkmark bigger and centered */
+.custom-checkbox .ant-checkbox-inner::after {
+    top: 11px;
+    left: 7px;
+    width: 6px;
+    height: 11px;
+    border-width: 2px;
+}
+
+/* Add bigger gap between checkboxes */
+.custom-checkbox {
+    margin-bottom: 8px;
+    /* increase gap */
+    font-size: 14px;
+}
+
+
+
+
+
+
+/* Slider track (active filled range) */
+.ant-slider-track {
+    background-color: #EF3441 !important;
+}
+
+/* Slider handle (thumb) */
+.ant-slider-handle {
+    border-color: #EF3441 !important;
+    color: #EF3441;
+    background-color: #EF3441 !important;
+
+}
+
+/* Handle when dragging or focused */
+.ant-slider-handle:focus,
+.ant-slider-handle:hover,
+.ant-slider-handle:active {
+    border-color: #EF3441 !important;
+}
+
+/* Optional: customize the unfilled rail color */
+.ant-slider-rail {
+    background-color: #f0f0f0 !important;
+}
+
+:where(.css-dev-only-do-not-override-mc1tut).ant-slider .ant-slider-handle::after {
+    content: "";
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+    width: 10px;
+    height: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 2px #EF3441;
+    outline: 0px solid transparent;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: inset-inline-start 0.2s, inset-block-start 0.2s, width 0.2s, height 0.2s, box-shadow 0.2s, outline 0.2s;
+}
+
+:where(.css-dev-only-do-not-override-mc1tut).ant-slider .ant-slider-handle:focus::after {
+    box-shadow: 0 0 0 2.5px #EF3441;
+    outline: 3px solid #f3565e11;
+    width: 12px;
+    height: 12px;
+    inset-inline-start: -1px;
+    inset-block-start: -1px;
+}
+
+:where(.css-dev-only-do-not-override-mc1tut).ant-slider .ant-slider-handle:hover::after,
+:where(.css-dev-only-do-not-override-mc1tut).ant-slider .ant-slider-handle:active::after,
+:where(.css-dev-only-do-not-override-mc1tut).ant-slider .ant-slider-handle:focus::after {
+    box-shadow: 0 0 0 2.5px #EF3441;
+    outline: 3px solid #f3565e11;
+    width: 12px;
+    height: 12px;
+    inset-inline-start: -1px;
+    inset-block-start: -1px;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
