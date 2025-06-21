@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import BestSellerBooks from './BestSellerBooks';
 import { getBestSeller } from '../../services/api';
+import { Link } from 'react-router-dom';
 
 function BestSeller() {
     const [activeLanguage, setActiveLanguage] = useState('Azərbaycan');
@@ -51,7 +52,7 @@ function BestSeller() {
                         key={lang}
                         onClick={() => setActiveLanguage(lang)}
                         className={`py-[7px] px-[20px] rounded-full border-[1px] transition duration-200
-              ${activeLanguage === lang
+                        ${activeLanguage === lang
                                 ? 'bg-[#EF3441] text-white border-[#EF3441]'
                                 : 'border-[#EF3441] hover:bg-[#F76C77] hover:border-[#F76C77] hover:text-white'
                             }`}
@@ -62,8 +63,11 @@ function BestSeller() {
             </div>
 
             {filteredBooks.length > 0 ? (
-                filteredBooks.map(book => <BestSellerBooks key={book.id} book={book} />)
-            ) : (
+                filteredBooks.map(book => (
+                    <Link key={book.id} to={`/kitab/${book.id}`}>
+                        <BestSellerBooks book={book} />
+                    </Link>
+                ))) : (
                 <p className="text-[14px] text-[#767676] mt-4">Bu dildə bestseller kitab tapılmadı.</p>
             )}
         </div>

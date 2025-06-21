@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { MdOutlineMenu } from "react-icons/md";
 import { IoSearch } from "react-icons/io5";
 import { IoMdClose } from "react-icons/io";
@@ -14,30 +14,21 @@ import MyAccount from '../Account/MyAccount';
 import Wishlist from '../Wishlist/Wishlist';
 import Kataloq from '../Kataloq/Kataloq';
 import { getBooksBySearch } from '../../services/api';
+import { WISHLIST } from '../../context/WishContext';
 
 
 
 function HeaderTop() {
+    const { wish } = useContext(WISHLIST);
+
 
 
     const [menuOpen, setMenuOpen] = useState(false)
 
     const [inputValue, setInputValue] = useState('')
-    // const [search, setSearch] = useState([])
 
     const navigate = useNavigate()
 
-    // useEffect(() => {
-    //     getBooksBySearch(inputValue).then(response => setSearch(response))
-    // }, [])
-
-    // const handleSearch = () => {
-    //     if (inputValue.trim().length > 1) {
-    //         navigate(`/axtar/${inputValue}`)
-    //         setInputValue('')
-    //         setSearch([])
-    //     }
-    // }
     const handleSearch = () => {
         const trimmed = inputValue.trim();
         if (trimmed.length > 1) {
@@ -85,8 +76,13 @@ function HeaderTop() {
 
                 <div className='flex items-center gap-3 text-[#0f172a] cursor-pointer'>
                     <MyAccount />
-                    <Link to={"wishlist-view"}>
-                        <LuHeart className='text-[27px] hidden xl:block' />
+                    <Link to={"wishlist-view"} className='relative'>
+                        <LuHeart className='text-[27px] hidden xl:block ' />
+                        {wish.length > 0 && (
+                            <span className="absolute -top-1 -right-1 bg-[#EF3441] nunito-font text-white text-[11px] w-[16px] h-[16px] flex items-center justify-center rounded-full font-semibold">
+                                {wish.length}
+                            </span>
+                        )}
                     </Link>
                     <Basket />
                 </div>

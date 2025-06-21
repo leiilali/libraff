@@ -1,15 +1,59 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import { RiShoppingBag4Line } from "react-icons/ri";
 import { LuHeart } from "react-icons/lu";
+import { TbHeart } from "react-icons/tb";
+import { TbHeartFilled } from "react-icons/tb";
 import { BiMessageError } from "react-icons/bi";
+import { BASKET } from '../../context/BasketContext';
+import { WISHLIST } from '../../context/WishContext';
+import BasketPopUp from '../PopUps/BasketPopUp';
+import WishPopUp from '../PopUps/WishlistPopUp';
 
 
 
 
 
-function BookDetails({books}) {
+function BookDetails({ books }) {
+    const { addToBasket } = useContext(BASKET)
+    const { wish, addWishList, deleteWishList } = useContext(WISHLIST)
+    const [showBasketPopup, setshowBasketPopup] = useState(false)
+    const [showWishPopup, setShowWishPopup] = useState(false);
+
+
+    const isInWishlist = wish.some(w => w.id === books.id);
+
+    const toggleWishlist = (e) => {
+        e.preventDefault(); 
+        e.stopPropagation();
+
+        if (isInWishlist) {
+            deleteWishList(books.id);
+        } else {
+            addWishList(books);
+            setShowWishPopup(true);
+            setTimeout(() => {
+                setShowWishPopup(false);
+            }, 3000);
+        }
+    };
+
+    const handleAddToBasket = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        addToBasket(books);
+        setshowBasketPopup(true);
+
+        setTimeout(() => {
+            setshowBasketPopup(false);
+        }, 5000);
+    };
+
     return (
         <div>
+            {showBasketPopup && <BasketPopUp book={books} closePopup={() => setshowBasketPopup(false)} />}
+            {showWishPopup && <WishPopUp book={books} closePopup={() => setShowWishPopup(false)} />}
+
 
             <div className='mt-10 nunito-font'>
                 <div className='sm:container'>
@@ -24,14 +68,22 @@ function BookDetails({books}) {
                     </div>
                 </div>
                 <div className='sm:container '>
-                    <button className='bg-[#ef3344] hover:bg-[#F24B56] font-semibold text-white text-[18px] flex items-center justify-center gap-2 py-3 mx-auto w-full rounded-full'>
+                    <button
+                        onClick={handleAddToBasket}
+                        className='bg-[#ef3344] hover:bg-[#F24B56] font-semibold text-white text-[18px] flex items-center justify-center gap-2 py-3 mx-auto w-full rounded-full'>
                         <RiShoppingBag4Line className=" text-white cursor-pointer !text-[25px]" />
                         Səbətə əlavə et
                     </button>
                 </div>
                 <div className='flex items-center justify-between font-light '>
-                    <div className='container text-[#64748b] lg:text-[14px] text-[16px] flex items-center gap-1 hover:text-[#ef3344]'>
-                        <LuHeart className='text-[24px] ' />
+                    <div
+                        onClick={toggleWishlist}
+                        className='container cursor-pointer text-[#64748b] lg:text-[14px] text-[16px] flex items-center gap-1 hover:text-[#ef3344]'>
+                        {isInWishlist ? (
+                            <TbHeartFilled className='text-[25px] text-[#ef3344]' />
+                        ) : (
+                            <TbHeart className='text-[25px]' />
+                        )}
                         Seçilmiş
                     </div>
                     <div className='container text-[#64748b] lg:text-[14px] text-[16px]  flex items-center gap-1 hover:text-[#ef3344]'>

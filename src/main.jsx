@@ -6,10 +6,16 @@ import '@fontsource/nunito/700.css';
 import './index.css'
 import App from './App.jsx'
 import { BrowserRouter } from 'react-router-dom';
+import WishContext from './context/WishContext';
+import BasketContext from './context/BasketContext';
 
 
 createRoot(document.getElementById('root')).render(
-    <BrowserRouter>
-        <App />
-    </BrowserRouter>
+    <BasketContext>
+        <WishContext>
+            <BrowserRouter>
+                <App />
+            </BrowserRouter>
+        </WishContext>
+    </BasketContext>
 )

@@ -43,7 +43,9 @@ function LoginPage() {
 
                     <label htmlFor="">
                         <div className="flex justify-between items-center">
-                            Şifrə <span className='text-[#EB7262] text-[13px]'>*</span>
+                            <div>
+                                Şifrə <span className='text-[#EB7262] text-[13px]'>*</span>
+                            </div>
                             <Link className=" text-[#EE2E39]">Şifrəni unutdum</Link>
                         </div>
                         <input type="text"
