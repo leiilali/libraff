@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Collapse, Checkbox, Slider } from 'antd';
 import { LuPlus, LuMinus } from 'react-icons/lu';
 import { IoMdCloseCircle } from "react-icons/io";
@@ -8,7 +8,13 @@ function FilterSidebar() {
     const [activeKeys, setActiveKeys] = useState(['1']);
     const [checkedList, setCheckedList] = useState([]);
     const [priceRange, setPriceRange] = useState([0, 100]);
+    // const [minMax , setMinMax] = useState([0, 5])
 
+    // useEffect(()=>{
+    //     const sortByProduct = data.sort((a,b) => a.price - b.price)
+    //     const min = sortByProduct[0]?.price
+    //     const max = sortByProduct.at[-1]?.price
+    // }) 
     const languages = [
         {
             key: '1',
@@ -50,27 +56,6 @@ function FilterSidebar() {
         },
     ];
 
-    // const price = [
-    //     {
-    //         key: '2',
-    //         label: <h3 className="text-[16px] nunito-font font-semibold">Qiymət</h3>,
-    //         children: (
-    //             <div className="px-2 py-1">
-    //                 <Slider
-    //                     range={{ draggableTrack: true }}
-    //                     min={0}
-    //                     max={100}
-    //                     value={priceRange}
-    //                     onChange={setPriceRange}
-    //                 />
-    //                 <div className="flex justify-between nunito-font text-[11px] text-[#909598] mt-2">
-    //                     <span>{priceRange[0]}₼</span>
-    //                     <span>{priceRange[1]}₼</span>
-    //                 </div>
-    //             </div>
-    //         ),
-    //     },
-    // ];
     const price = [
         {
             key: '2',
@@ -86,12 +71,6 @@ function FilterSidebar() {
                                 min={0}
                                 max={priceRange[1]}
                                 value={priceRange[0]}
-                                // onChange={(e) => {
-                                //     const newMin = Number(e.target.value);
-                                //     if (newMin <= priceRange[1]) {
-                                //         setPriceRange([newMin, priceRange[1]]);
-                                //     }
-                                // }}
                                 className="w-full outline-none text-sm"
                             />
                             <span className="text-xs text-[#666]">₼</span>
@@ -105,12 +84,6 @@ function FilterSidebar() {
                                 min={priceRange[0]}
                                 max={100}
                                 value={priceRange[1]}
-                                // onChange={(e) => {
-                                //     const newMax = Number(e.target.value);
-                                //     if (newMax >= priceRange[0]) {
-                                //         setPriceRange([priceRange[0], newMax]);
-                                //     }
-                                // }}
                                 className="w-full outline-none text-sm"
                             />
                             <span className="text-xs text-[#666]">₼</span>

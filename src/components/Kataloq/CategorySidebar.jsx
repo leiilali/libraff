@@ -11,7 +11,7 @@ function CategorySidebar({
     onSubSubCategoryClick,
 }) {
 
-    const {pathname} = useLocation()
+    // const {pathname} = useLocation()
 
     return (
         <div className='nunito-font border border-[#EEEEEE] rounded-2xl p-3'>

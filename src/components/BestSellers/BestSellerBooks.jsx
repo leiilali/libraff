@@ -71,27 +71,27 @@ function BestSellerBooks({ book }) {
                         <li className="flex items-baseline gap-2 text-[12px] text-[#767676]">
                             <span className="whitespace-nowrap">Cild</span>
                             <span className="flex-1 border-b border-dotted border-gray-400"></span>
-                            <span className="text-[#0f172a] text-[13px] whitespace-nowrap">Yumşaq</span>
+                            <span className="text-[#0f172a] text-[13px] whitespace-nowrap">{book.cover}</span>
                         </li>
                         <li className="flex justify-between items-center gap-2 text-[12px] text-[#767676]">
                             <span className="whitespace-nowrap">Dil</span>
                             <span className="flex-1 border-b border-dotted border-gray-400"></span>
-                            <span className="text-[#0f172a] text-[13px] whitespace-nowrap">AZE</span>
+                            <span className="text-[#0f172a] text-[13px] whitespace-nowrap">{book.language}</span>
                         </li>
                         <li className="flex justify-between items-center gap-2 text-[12px] text-[#767676]">
                             <span className="whitespace-nowrap">Müəllif</span>
                             <span className="flex-1 border-b border-dotted border-gray-400"></span>
-                            <span className="text-[#ef3340] text-[13px] whitespace-nowrap">Elxan Elatlı</span>
+                            <span className="text-[#ef3340] text-[13px] whitespace-nowrap">{book.author}</span>
                         </li>
                         <li className="flex justify-between items-center gap-2 text-[12px] text-[#767676]">
                             <span className="whitespace-nowrap">Nəşriyyat</span>
                             <span className="flex-1 border-b border-dotted border-gray-400"></span>
-                            <span className="text-[#0f172a] text-[13px] whitespace-nowrap">AZE</span>
+                            <span className="text-[#0f172a] text-[13px] whitespace-nowrap">{book.publisher}</span>
                         </li>
                         <li className="flex justify-between items-center gap-2 text-[12px] text-[#767676]">
                             <span className="whitespace-nowrap">Səhifə sayı</span>
                             <span className="flex-1 border-b border-dotted border-gray-400"></span>
-                            <span className="text-[#0f172a] text-[13px] whitespace-nowrap">AZE</span>
+                            <span className="text-[#0f172a] text-[13px] whitespace-nowrap">{book.pageCount}</span>
                         </li>
                     </ul>
                 </div>
