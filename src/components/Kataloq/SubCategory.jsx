@@ -7,6 +7,9 @@ import { getAllCategory, getBooksByCategoryCode } from '../../services/api';
 import { useLocation } from 'react-router-dom';
 import CategorySidebar from './CategorySidebar';
 import FilterSidebar from './FilterSidebar';
+import { Select } from 'antd';
+import '../../style/sortPagination.css'
+
 
 // Helper function to find category hierarchy by code
 function findParentCategoryByCode(menu, targetCode) {
@@ -41,17 +44,17 @@ function SubCategory() {
     const [selectedCategory, setSelectedCategory] = useState('')
     const [books, setBooks] = useState([])
 
+    // const [filter, setFilter] =useState([])
+
     const location = useLocation();
     const { code } = location.state || {};
 
     const closeOverlay = () => setOverlay(null);
 
-    // Fetch categories once
     useEffect(() => {
         getAllCategory().then(response => setData(response));
     }, []);
 
-    // Fetch books and auto-open sidebar path
     useEffect(() => {
         if (code && data?.menu?.length > 0) {
             getBooksByCategoryCode(code).then((data) => {
@@ -140,14 +143,35 @@ function SubCategory() {
                     </div>
 
 
-                    <div className='w-[80%] grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4'>
-                        {books.length > 0 ? (
-                            books.map((book) => (
-                                <BookCards key={book.id} item={book} cardFor="main" />
-                            ))
-                        ) : (
-                            <p className="text-gray-600">Kitab tapılmadı.</p>
-                        )}
+                    <div className='w-[80%]'>
+                        <div className='nunito-font'>
+                            <div className='flex items-center gap-2'>
+                                <h2 className='text-[14px] text-[#767676] font-light'>Çeşidlə:</h2>
+                                <div>
+                                    <Select
+                                        showSearch={false} 
+                                        placeholder="Bütün kitablar "
+                                        className="custom-select "
+                                        options={[
+                                            { value: '1', label: 'Bütün kitablar' },
+                                            { value: '2', label: 'A-dan Z-ə' },
+                                            { value: '3', label: 'Z-dən A-ya' },
+                                            { value: '4', label: 'Əvvəlcə ucuz' },
+                                            { value: '5', label: 'Əvvəlcə baha' },
+                                        ]}
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                        <div className=' grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4'>
+                            {books.length > 0 ? (
+                                books.map((book) => (
+                                    <BookCards key={book.id} item={book} cardFor="main" />
+                                ))
+                            ) : (
+                                <p className="text-gray-600">Kitab tapılmadı.</p>
+                            )}
+                        </div>
                     </div>
                 </div>
             </div>

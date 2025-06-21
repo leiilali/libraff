@@ -13,6 +13,7 @@ function Kataloq() {
     const [activeCategory, setActiveCategory] = useState(null);
     const [activeSubCategory, setActiveSubCategory] = useState(null);
 
+
     const location = useLocation();
 
     useEffect(() => {
@@ -50,7 +51,7 @@ function Kataloq() {
             >
                 <div className="px-0 grid grid-cols-4 overflow-x-auto">
 
-                    {/* Main Categories */}
+                    {/* main categories */}
                     <ul className="py-3">
                         {data?.menu?.map((item) => (
                             <li
@@ -75,7 +76,7 @@ function Kataloq() {
                         ))}
                     </ul>
 
-                    {/* Subcategories*/}
+                    {/* subcategories*/}
                     <ul className="py-3 col-span-1 bg-[#F5F5F7] h-[550px] min-h-full">
                         {(hoveredCategory?.subCategories?.length > 0
                             ? hoveredCategory.subCategories
@@ -102,7 +103,7 @@ function Kataloq() {
                         ))}
                     </ul>
 
-                    {/* Sub-subcategories */}
+                    {/* sub-subcategories */}
                     <div className="col-span-2 columns-2 md:columns-2 lg:columns-3 xl:columns-4 px-4 py-3 overflow-hidden">
                         <ul className="list-none space-y-1">
                             {(hoveredSubCategory?.subCategories?.length > 0

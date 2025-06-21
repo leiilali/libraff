@@ -3,9 +3,11 @@ import { LuCircleUser } from "react-icons/lu";
 import { RxTriangleRight } from "react-icons/rx";
 import { FaChevronDown } from "react-icons/fa6";
 import { Link } from 'react-router-dom';
+import Login from '../../auth/Login';
 
 function MyAccount() {
     const [isOpen, setIsOpen] = useState(false);
+    const [showLogin, setShowLogin] = useState(false)
     const dropdownRef = useRef(null); 
 
     useEffect(() => {
@@ -67,12 +69,16 @@ function MyAccount() {
                     </div>
 
                     <div className='nunito-font flex justify-between mt-6 mb-2'>
-                        <Link to={"/login"} className='bg-[#1E1E1E] text-[#fff] font-semibold px-3 py-2 rounded-full cursor-pointer'>Daxil ol</Link>
+                        <button
+                        onClick={()=>setShowLogin(true)}
+                        className='bg-[#1E1E1E] text-[#fff] font-semibold px-3 py-2 rounded-full cursor-pointer'>Daxil ol</button>
                         <Link to={"/qeydiyyat"} className='bg-[#EF3441] text-[#fff] font-semibold px-3 py-2 rounded-full cursor-pointer'>Qeydiyyat</Link>
                     </div>
                 </div>
             </div>
+            {showLogin && <Login onClose={() => setShowLogin(false)} />}
         </div>
+        
     );
 }
 
