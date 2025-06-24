@@ -31,7 +31,7 @@ function BottomNavbar() {
     }, []);
 
     return (
-        <div className={`fixed bottom-[-2px] nunito-font left-0 right-0 z-3 bg-white border-t border-gray-300 h-14 flex justify-around items-center transition-transform duration-300 ${show ? 'translate-y-0' : 'translate-y-full'}`}>
+        <div className={`fixed xl:hidden bottom-[-2px] nunito-font left-0 right-0 z-3 bg-white border-t border-gray-300 h-14 flex justify-around items-center transition-transform duration-300 ${show ? 'translate-y-0' : 'translate-y-full'}`}>
             <div className="flex flex-col items-center">
                 <MdOutlineMenu className='text-[25px] text-[#94a3b8]' />
                 <p className='text-[12px] text-[#94a3b8]'>Menyu</p>
