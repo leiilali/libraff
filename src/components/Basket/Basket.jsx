@@ -30,7 +30,7 @@ function Basket() {
                     className="text-[#0f172a] cursor-pointer text-[28px]"
                 />
                 {basket.length > 0 && (
-                    <span className="absolute -top-1 -right-1 bg-[#EF3441] text-white text-[11px] w-[16px] h-[16px] nunito-font flex items-center justify-center rounded-full font-semibold">
+                    <span className="absolute -top-1 -right-1  bg-[#EF3441] text-white text-[11px] w-[16px] h-[16px] nunito-font flex items-center justify-center rounded-full font-semibold">
                         {basket.length}
                     </span>
                 )}

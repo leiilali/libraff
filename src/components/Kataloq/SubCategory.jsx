@@ -9,6 +9,8 @@ import CategorySidebar from './CategorySidebar';
 import FilterSidebar from './FilterSidebar';
 import { Select } from 'antd';
 import '../../style/sortPagination.css'
+import CategoryBarMobile from './CategoryBarMobile';
+import FilterBarMobile from './FilterBarMobile';
 
 
 // Helper function to find category hierarchy by code
@@ -202,28 +204,56 @@ function SubCategory() {
             </div>
 
             {overlay && (
-                <div className='fixed inset-0 bg-white z-50 flex flex-col p-6'>
-                    <div className='flex justify-between items-center mb-6'>
-                        <h2 className='text-[24px] font-semibold text-[#0f172a] capitalize'>
+                <div className='fixed inset-0 bg-white z-50 flex flex-col '>
+                    <div className='flex justify-between items-center p-3'>
+                        <h2 className='text-[24px] font-light nunito-font text-[#0f172a] capitalize'>
                             {overlay === 'kateqoriyalar' ? 'Kateqoriyalar' : 'Filterlər'}
                         </h2>
                         <button onClick={closeOverlay}>
                             <RxCross2 className='text-[28px] text-[#333]' />
                         </button>
                     </div>
+                    <div className='bg-[#D6D6D6] h-[1px] w-full'></div>
 
-                    <div className='flex-1 overflow-auto'>
+                    <div className='flex-1 overflow-auto p-3'>
                         {overlay === 'kateqoriyalar' && (
                             <div>
-                                {/* Add mobile category content here */}
-                                <p>Kateqoriyalar üçün buraya istədiyin kontenti yerləşdir.</p>
+                                <CategoryBarMobile
+                                    menu={data.menu || []}
+                                    activeCategoryCode={activeCategoryCode}
+                                    activeSubCategoryCode={activeSubCategoryCode}
+                                    activeSubSubCategoryCode={activeSubSubCategoryCode}
+                                    onCategoryClick={(category) => {
+                                        setActiveCategoryCode(category.code);
+                                        setActiveSubCategoryCode(null);
+                                        setActiveSubSubCategoryCode(null);
+                                        setSelectedCategory(category.name);
+                                        getBooksByCategoryCode(category.code).then((res) =>
+                                            setBooks(res.books || [])
+                                        );
+                                    }}
+                                    onSubCategoryClick={(sub) => {
+                                        setActiveSubCategoryCode(sub.code);
+                                        setActiveSubSubCategoryCode(null);
+                                        setSelectedCategory(sub.name);
+                                        getBooksByCategoryCode(sub.code).then((res) =>
+                                            setBooks(res.books || [])
+                                        );
+                                    }}
+                                    onSubSubCategoryClick={(subsub) => {
+                                        setActiveSubSubCategoryCode(subsub.code);
+                                        setSelectedCategory(subsub.name);
+                                        getBooksByCategoryCode(subsub.code).then((res) =>
+                                            setBooks(res.books || [])
+                                        )
+                                    }}
+                                />
                             </div>
                         )}
 
                         {overlay === 'filterler' && (
                             <div>
-                                {/* Add filter content here */}
-                                <p>Filterlər üçün buraya uyğun komponent və kontent əlavə et.</p>
+                                <FilterBarMobile/>
                             </div>
                         )}
                     </div>
