@@ -17,11 +17,11 @@ function SearchPage() {
     return (
         <div className='container flex items-start gap-8'>
 
-            <div className='w-[20%]'>
+            <div className='w-[20%] hidden lg:block '>
                 <FilterSidebar />
             </div>
 
-            <div className='w-[80%]'>
+            <div className='xl:w-[80%] w-full '>
 
                 <div className='flex items-center justify-between'>
                     <h2 className='text-[28px] text-[#0f172a] font-bold'>Axtarış nəticəsi</h2>

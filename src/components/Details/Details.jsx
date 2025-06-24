@@ -35,7 +35,6 @@ function Details() {
                         <AboutBook books={books} />
                     </div>
                 </div>
-
         </div>
     )
 }

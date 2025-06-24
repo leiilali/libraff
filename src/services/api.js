@@ -34,11 +34,15 @@ async function getBooksBySearch(name){
     const res = await axios.get(`https://api.baghirli.net/searchBook?searchQuery=${name}`)
     return res.data
 }
+async function getUcAlmaBooks(){
+    const res = await axios.get('https://api.baghirli.net/3AlmaMostRecents')
+    return res.data
+}
 
 export {
     getAllCategory, getAllAuthors, 
     getThisWeeksMostViewedBooks, 
     getMostSearchedBooks, getBooksByCategoryCode, getBooksById,
-    getBestSeller, getBooksBySearch
+    getBestSeller, getBooksBySearch, getUcAlmaBooks
     
 }

@@ -70,6 +70,7 @@ function BestSeller() {
                 ))) : (
                 <p className="text-[14px] text-[#767676] mt-4">Bu dildə bestseller kitab tapılmadı.</p>
             )}
+
         </div>
     );
 }

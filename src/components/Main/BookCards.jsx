@@ -25,9 +25,9 @@ function BookCards({ cardFor = 'main', item }) {
 
     return (
         <Link to={`/kitab/${item.id}`}>
-            <div className='group px-2 py-5 relative hover:shadow-2xl transition duration-300 rounded-2xl'>
+            <div className='group py-5 relative hover:shadow-2xl transition duration-300 rounded-2xl'>
                 <div
-                    className={`absolute right-4 top-6 transition-opacity duration-200 ${cardFor === 'wishlist' ? 'opacity-100' : isInWishlist ? 'opacity-100' : 'group-hover:opacity-100 opacity-0'
+                    className={`absolute xl:right-4 xl:top-6 top-7 right-1.5 transition-opacity duration-200 ${cardFor === 'wishlist' ? 'opacity-100' : isInWishlist ? 'opacity-100' : 'group-hover:opacity-100 opacity-0'
                         }`}
                 >
                     <div
@@ -58,7 +58,7 @@ function BookCards({ cardFor = 'main', item }) {
                         alt={item.title}
                         className='w-full h-full object-cover object-center' />
                 </div>
-                <div className='nunito-font flex flex-col gap-4 pt-4'>
+                <div className='nunito-font flex flex-col gap-4 pt-4 px-1.5'>
                     <h3 className='text-[16px] text-[#0f172a] font-light '>{item.title}</h3>
                     <div className='flex items-center gap-3'>
                         <h4 className='flex items-center text-[#959595] nunito-font'><MdOutlineStarHalf className='!text-[#CC0000]' /> {item.rate ?? 0}</h4>

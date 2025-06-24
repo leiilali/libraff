@@ -44,12 +44,30 @@ function SubCategory() {
     const [selectedCategory, setSelectedCategory] = useState('')
     const [books, setBooks] = useState([])
 
-    // const [filter, setFilter] =useState([])
-
     const location = useLocation();
     const { code } = location.state || {};
 
     const closeOverlay = () => setOverlay(null);
+
+    // const sortedBooks = () => {
+    //     if (!books) return [];
+
+    //     const sorted = [...books]
+
+    //     switch (sortBooks) {
+    //         case '2': // A-dan Z-ə
+    //             return sorted.sort((a, b) => a.name.localeCompare(b.name));
+    //         case '3': // Z-dən A-ya
+    //             return sorted.sort((a, b) => b.name.localeCompare(a.name));
+    //         case '4': // Əvvəlcə ucuz
+    //             return sorted.sort((a, b) => a.salePrice - b.salePrice);
+    //         case '5': // Əvvəlcə baha
+    //             return sorted.sort((a, b) => b.salePrice - a.salePrice);
+    //         default:
+    //             return sorted; // Bütün kitablar
+    //     }
+
+    // }
 
     useEffect(() => {
         getAllCategory().then(response => setData(response));
@@ -97,14 +115,18 @@ function SubCategory() {
                 </div>
             </div>
 
+
+
+
+
             <div className="container">
-                <h2 className='text-[28px] text-[#0f172a] my-5 font-semibold'>
+                <h2 className='text-[28px] text-[#0f172a] mb-2 font-semibold'>
                     {selectedCategory || 'Kateqoriyalar'}
                 </h2>
 
-                <div className='flex  items-start gap-8'>
+                <div className='flex justif-between gap-8'> {/*items-start */}
 
-                    <div className='flex flex-col gap-6 '>
+                    <div className='hidden xl:flex flex-col gap-6 '>
                         <div className='w-20%'>
                             <CategorySidebar
                                 menu={data.menu || []}
@@ -143,15 +165,17 @@ function SubCategory() {
                     </div>
 
 
-                    <div className='w-[80%]'>
+                    <div className='xl:w-[80%] w-full'>
                         <div className='nunito-font'>
                             <div className='flex items-center gap-2'>
                                 <h2 className='text-[14px] text-[#767676] font-light'>Çeşidlə:</h2>
                                 <div>
                                     <Select
-                                        showSearch={false} 
+                                        showSearch={false}
                                         placeholder="Bütün kitablar "
+                                        // value={sortBooks}
                                         className="custom-select "
+                                        // onChange={value => setSortBooks(value)}
                                         options={[
                                             { value: '1', label: 'Bütün kitablar' },
                                             { value: '2', label: 'A-dan Z-ə' },
@@ -163,7 +187,7 @@ function SubCategory() {
                                 </div>
                             </div>
                         </div>
-                        <div className=' grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4'>
+                        <div className='grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4'>
                             {books.length > 0 ? (
                                 books.map((book) => (
                                     <BookCards key={book.id} item={book} cardFor="main" />
@@ -172,6 +196,7 @@ function SubCategory() {
                                 <p className="text-gray-600">Kitab tapılmadı.</p>
                             )}
                         </div>
+
                     </div>
                 </div>
             </div>

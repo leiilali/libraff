@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -24,44 +25,78 @@ import banner6_lg from "../../assets/images/heroBannerImages/banner6_lg.webp";
 function MainSwiper() {
 
     const bannerData = [
-        { sm: banner1_sm, lg: banner1_lg },
-        { sm: banner2_sm, lg: banner2_lg },
-        { sm: banner3_sm, lg: banner3_lg },
-        { sm: banner4_sm, lg: banner4_lg },
-        { sm: banner5_sm, lg: banner5_lg },
+        { id: 14, sm: banner1_sm, lg: banner1_lg },
+        { id: 10, sm: banner2_sm, lg: banner2_lg },
+        { id: 17, sm: banner3_sm, lg: banner3_lg },
+        { id: 18, sm: banner4_sm, lg: banner4_lg },
+        { id: 9, sm: banner5_sm, lg: banner5_lg },
         { sm: banner6_sm, lg: banner6_lg },
-      ];
-      
+    ];
+
     return (
         <div>
             <Swiper
                 loop={true}
-                speed={1000} 
+                speed={1000}
                 autoplay={{
-                  delay: 3000,
-                  disableOnInteraction: false,
+                    delay: 3000,
+                    disableOnInteraction: false,
                 }}
                 pagination={{
-                  el: '.custom-swiper-pagination',
-                  clickable: true,
+                    el: '.custom-swiper-pagination',
+                    clickable: true,
                 }}
                 modules={[Pagination, Autoplay]}
                 className="w-full h-full"
             >
+                {/* {
+                    bannerData.map((item, index) => (
+                        <SwiperSlide key={index}>
+                            <Link to={`/kitab/${item.id}`}>
+                                <picture>
+                                    <source srcSet={item.sm} media="(max-width: 640px)" />
+                                    <img
+                                        src={item.lg}
+                                        alt={`hero_banner_${index}`}
+                                        className="w-full h-[400px] sm:h-[400px] md:h-[500px] object-cover object-center"
+                                    />
+                                </picture>
+                            </Link>
+                        </SwiperSlide>
+                    ))
+                } */}
                 {
                     bannerData.map((item, index) => (
                         <SwiperSlide key={index}>
-                            <picture>
-                                <source srcSet={item.sm} media="(max-width: 640px)" />
-                                <img
-                                    src={item.lg}
-                                    alt={`hero_banner_${index}`}
-                                    className="w-full h-[400px] sm:h-[400px] md:h-[500px] object-cover object-center"
-                                />
-                            </picture>
+                            {
+                                index === bannerData.length - 1 ? (
+                                    <Link to="/kampaniyalar-az">
+                                        <picture>
+                                            <source srcSet={item.sm} media="(max-width: 640px)" />
+                                            <img
+                                                src={item.lg}
+                                                alt={`hero_banner_${index}`}
+                                                className="w-full h-[400px] sm:h-[400px] md:h-[500px] object-cover object-center"
+                                            />
+                                        </picture>
+                                    </Link>
+                                ) : (
+                                    <Link to={`/kitab/${item.id}`}>
+                                        <picture>
+                                            <source srcSet={item.sm} media="(max-width: 640px)" />
+                                            <img
+                                                src={item.lg}
+                                                alt={`hero_banner_${index}`}
+                                                className="w-full h-[400px] sm:h-[400px] md:h-[500px] object-cover object-center"
+                                            />
+                                        </picture>
+                                    </Link>
+                                )
+                            }
                         </SwiperSlide>
                     ))
                 }
+
 
             </Swiper>
             <div className="custom-swiper-pagination flex justify-center mt-5"></div>

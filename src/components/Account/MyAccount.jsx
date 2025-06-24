@@ -39,7 +39,7 @@ function MyAccount() {
             </div>
 
             <div className={`w-[340px] border-[0.5px] border-[#EBEBEB] rounded-b-xl rounded-t-none lg:rounded-t-xl 
-                absolute top-12 right-0 z-50 bg-[#fff] overflow-hidden 
+                absolute top-12 right-[-35px] xl:right-0 z-50 bg-[#fff] overflow-hidden 
                 shadow-[0_0_0_1px_rgba(0,0,0,0.05),_0_10px_15px_0_rgba(0,0,0,0.3)] 
                 transition-all duration-300 ease-in-out
                 ${isOpen ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 -translate-y-4 pointer-events-none'}`}>
