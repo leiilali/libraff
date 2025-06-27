@@ -1,7 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import payment from "../../assets/images/navImages/payment.jpg"
 
 function Payment() {
+
+    useEffect(()=>{
+        document.title = "Ödəniş və çatdırılma | Libraff"
+    }, [])
+
     return (
         <>
             <div className="container">

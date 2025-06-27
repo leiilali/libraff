@@ -13,8 +13,8 @@ function FooterMobile() {
             label: 'Hesabım',
             children:
                 <ul className='md:text-[14px] text-[#1e1e1e] my-[10px] flex flex-col gap-3'>
-                    <li><a className='text-[#1e1e1e]' href="">Daxil ol</a></li>
-                    <li><a href="">Qeydiyyatdan keç</a></li>
+                    <li><Link to={"/login2"}>Daxil ol</Link></li>
+                    <li><Link to={"/qeydiyyat"}>Qeydiyyatdan keç</Link></li>
                 </ul>,
         },
         {
@@ -46,7 +46,7 @@ function FooterMobile() {
                     <li><a href="">Bakı, Badamdar qəs., Mikayıl Müşfiq küç. 1c (Badamdar Estates)</a></li>
                     <li><a href="">+994-50-290-44-96</a></li>
                     <li><a href="">B.e.-B. 9.00 - 18.00</a></li>
-                    <li><a href="">online@libraff.az</a></li>
+                    <li className='underline'><a href="">online@libraff.az</a></li>
                     <li><a href="">Xəritədə bax</a></li>
                 </ul>
         },

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import EmptyWishlist from './EmptyWishlist';
 import { Link } from 'react-router-dom';
 import BookCards from '../Main/BookCards';
@@ -7,6 +7,10 @@ import { WISHLIST } from '../../context/WishContext';
 
 function Wishlist() {
   const { wish, clearWishList } = useContext(WISHLIST)
+
+  useEffect(() => {
+    document.title = "Əlavə edilmişlər"
+  }, [])
 
   return (
     <div className='container'>

@@ -1,11 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import loyaltyCard from "../../assets/images/navImages/loyalty.jpg"
 
 function LoyaltyCard() {
+
+    useEffect(()=>{
+        document.title = "Loyallıq Kartı | Libraff"
+    }, [])
+
     return (
-        <div>
-
-
+        <>
             <div className="container">
 
                 <h2 className='text-[28px] text-[#0f172a] my-5 font-semibold'>Loyallıq Kartı</h2>
@@ -24,7 +27,7 @@ function LoyaltyCard() {
                 </div>
 
             </div>
-        </div>
+        </>
     )
 }
 

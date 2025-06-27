@@ -16,6 +16,10 @@ function Main() {
         getMostSearchedBooks().then(products => setMostSearched(products))
     }, [])
 
+    useEffect(()=>{
+        document.title = "Libraff - Onlayn Kitab Satışı"
+    }, [])
+
     return (
         <div>
             <div className='xl:pt-0 pt-5'>

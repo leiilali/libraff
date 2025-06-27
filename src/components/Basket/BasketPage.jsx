@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { RiCloseCircleFill } from "react-icons/ri";
 import { Link } from 'react-router-dom';
 import { FaRegCheckCircle } from "react-icons/fa";
@@ -6,6 +6,10 @@ import { BASKET } from '../../context/BasketContext';
 
 function BasketPage() {
     const { basket, deleteBasket, clearBasket } = useContext(BASKET);
+
+    useEffect(()=>{
+        document.title = "Səbət | Libraff"
+    }, [])
 
     return (
         <div className='container'>

@@ -55,27 +55,33 @@ function Basket() {
                 <div className="h-[1px] bg-gray-300 w-full my-1"></div>
 
                 <div className='px-5 py-4 flex flex-col items-start gap-4'>
-                    {basket.map((item, index) => (
-                        <div key={item.id} className="w-full">
-                            <Link to={`/kitab/${item.id}`} className='flex items-center gap-4'>
-                                <div className='w-[40px] h-[50px]'>
-                                    <img
-                                        src={item.imageSource}
-                                        alt="books_in_basket"
-                                        className='w-full h-full object-cover object-center'
-                                    />
-                                </div>
-                                <div className='flex flex-col gap-1'>
-                                    <h2 className='text-[#ef3340] text-[14px] nunito-font font-light'>{item.title}</h2>
-                                    <h4 className='text-[#0f172a] text-[14px] nunito-font font-light'>1 x {item.discountedPrice} ₼</h4>
-                                </div>
-                            </Link>
+                    {basket.length === 0 ? (
+                        <p className='text-[#767676] text-[14px] nunito-font font-light text-center w-full'>
+                            Səbət boşdur
+                        </p>
+                    ) : (
+                        basket.map((item, index) => (
+                            <div key={item.id} className="w-full">
+                                <Link to={`/kitab/${item.id}`} className='flex items-center gap-4'>
+                                    <div className='w-[40px] h-[50px]'>
+                                        <img
+                                            src={item.imageSource}
+                                            alt="books_in_basket"
+                                            className='w-full h-full object-cover object-center'
+                                        />
+                                    </div>
+                                    <div className='flex flex-col gap-1'>
+                                        <h2 className='text-[#ef3340] text-[14px] nunito-font font-light'>{item.title}</h2>
+                                        <h4 className='text-[#0f172a] text-[14px] nunito-font font-light'>1 x {item.discountedPrice} ₼</h4>
+                                    </div>
+                                </Link>
 
-                            {index !== basket.length - 1 && (
-                                <div className="w-full h-[1px] bg-[#EEEEEE] mt-6"></div>
-                            )}
-                        </div>
-                    ))}
+                                {index !== basket.length - 1 && (
+                                    <div className="w-full h-[1px] bg-[#EEEEEE] mt-6"></div>
+                                )}
+                            </div>
+                        ))
+                    )}
                 </div>
 
                 <Link to={"/sebet"} className='px-5 py-6 text-center bg-[#F5F5F7]'>

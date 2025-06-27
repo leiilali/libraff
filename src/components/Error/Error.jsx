@@ -3,6 +3,10 @@ import { Link, useNavigate } from 'react-router-dom';
 
 function Error() {
     const navigate = useNavigate();
+    
+    useEffect(() => {
+        document.title = "Səhifə tapılmadı"
+    }, [])
 
     return (
         <div className='container !mx-[100px] !my-[80px]'>

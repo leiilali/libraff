@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import GoogleMap from './GoogleMap';
 import BranchCard from './BranchCard';
 import MessageUs from './MessageUs';
@@ -6,7 +6,9 @@ import MessageUs from './MessageUs';
 
 function Contact() {
 
-
+    useEffect(()=>{
+        document.title = "Əlaqə | Libraff"
+    }, [])
 
     return (
         <div>

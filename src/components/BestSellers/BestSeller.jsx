@@ -22,6 +22,10 @@ function BestSeller() {
         });
     }, []);
 
+    useEffect(()=>{
+        document.title = "Bestsellerlər | Libraff"
+    }, [])
+
 
     const selectedLangCode = languageMap[activeLanguage];
     const filteredBooks = bestSeller.filter(book => book.language === selectedLangCode);

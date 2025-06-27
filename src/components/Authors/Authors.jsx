@@ -10,6 +10,10 @@ function Authors() {
         getAllAuthors().then(response => setData(response))
     }, [])
 
+    useEffect(()=>{
+        document.title = "Müəlliflər | Libraff"
+    }, [])
+
     return ( 
         <div>
             <div className="container ">

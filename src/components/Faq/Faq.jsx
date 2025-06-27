@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import faq from "../../assets/images/navImages/faq.jpg"
 import { Collapse } from 'antd';
 import { RightOutlined } from '@ant-design/icons';
@@ -7,6 +7,11 @@ import { RightOutlined } from '@ant-design/icons';
 
 
 function Faq() {
+
+    useEffect(()=>{
+        document.title = "FAQ | Libraff"
+    }, [])
+
     return (
         <div>
             <div className="container">

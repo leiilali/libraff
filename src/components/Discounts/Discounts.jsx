@@ -1,7 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import discount2 from "../../assets/images/discountImages/discount2.webp"
 
 function Discounts() {
+
+    useEffect(() => {
+        document.title = "Endirimlər | Libraff"
+    }, [])
+
     return (
         <div className="container ">
             <h2 className='text-[28px] text-[#0f172a] my-5 font-semibold'>Kampaniyalar</h2>

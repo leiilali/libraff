@@ -14,27 +14,32 @@ function Details() {
         getBooksById(id).then(response => setBooks(response))
     }, [id])
 
+    useEffect(() => {
+        if (books.title) {
+            document.title = `${books.title} | Libraff`;
+        }
+    }, [books.title]);
+
 
     return (
         <div>
-        
-                <div>
-                    <div className='lg:flex items-center justify-between container gap-10'>
-                        <div className='bg-[#F6F6F8] xl:w-[90%] lg:w-[95%] lg:rounded-lg '>
-                            <img src={books.imageSource}
-                                className='w-[70%] lg:object-center lg:object-cover lg:w-[50%] mx-auto object-cover object-center'
-                                alt="" />
-                        </div>
-                        <div>
-                            <BookDetails books={books} />
-                            <BookDelivery />
-                        </div>
+            <div>
+                <div className='lg:flex items-center justify-between container gap-10'>
+                    <div className='bg-[#F6F6F8] xl:w-[90%] lg:w-[95%] lg:rounded-lg '>
+                        <img src={books.imageSource}
+                            className='w-[70%] lg:object-center lg:object-cover lg:w-[50%] mx-auto object-cover object-center'
+                            alt="" />
                     </div>
-
-                    <div className='my-[30px]'>
-                        <AboutBook books={books} />
+                    <div>
+                        <BookDetails books={books} />
+                        <BookDelivery />
                     </div>
                 </div>
+
+                <div className='my-[30px]'>
+                    <AboutBook books={books} />
+                </div>
+            </div>
         </div>
     )
 }

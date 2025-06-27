@@ -9,8 +9,8 @@ function FooterDesktop() {
                     <div>
                         <h3 className='md:text-[18px] text-[#0f172a]'>Hesabım</h3>
                         <ul className='md:text-[14px] text-[#1e1e1e] my-[10px] flex flex-col gap-3'>
-                            <li><Link>Daxil ol</Link></li>
-                            <li><Link>Qeydiyyatdan keç</Link></li>
+                            <li><Link to={"/login2"}>Daxil ol</Link></li>
+                            <li><Link to={"/qeydiyyat"}>Qeydiyyatdan keç</Link></li>
                         </ul>
                     </div>
                     <div>
@@ -36,7 +36,7 @@ function FooterDesktop() {
                             <li><a href="">Bakı, Badamdar qəs., Mikayıl Müşfiq küç. 1c (Badamdar Estates)</a></li>
                             <li><a href="">+994-50-290-44-96</a></li>
                             <li><a href="">B.e.-B. 9.00 - 18.00</a></li>
-                            <li><a href="">online@libraff.az</a></li>
+                            <li className='underline'><a href="">online@libraff.az</a></li>
                             <li><a href="">Xəritədə bax</a></li>
                         </ul>
                     </div>

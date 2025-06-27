@@ -18,8 +18,8 @@ async function getMostSearchedBooks(){
     const res = await axios.get('https://api.baghirli.net/mostSearchedBooks')
     return res.data
 }
-async function getBooksByCategoryCode(code){
-    const res = await axios.get(`https://api.baghirli.net/getBooksByCategoryCode?code=${code}`)
+async function getBooksByCategoryCode(code, pageNumber, pageCount){
+    const res = await axios.get(`https://api.baghirli.net/getBooksByCategoryCode?code=${code}&pageNumber=${pageNumber}&pageCount=${pageCount}`)
     return res.data
 }
 async function getBooksById(id){
@@ -30,8 +30,8 @@ async function getBestSeller(){
     const res = await axios.get('https://api.baghirli.net/getBestsellers')
     return res.data
 }
-async function getBooksBySearch(name){
-    const res = await axios.get(`https://api.baghirli.net/searchBook?searchQuery=${name}`)
+async function getBooksBySearch(name, pageNumber, pageCount){
+    const res = await axios.get(`https://api.baghirli.net/searchBook?searchQuery=${name}&pageNumber=${pageNumber}&pageCount=${pageCount}`)
     return res.data
 }
 async function getUcAlmaBooks(){
