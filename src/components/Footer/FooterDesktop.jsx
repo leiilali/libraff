@@ -16,7 +16,7 @@ function FooterDesktop() {
                     <div>
                         <h3 className='md:text-[18px] text-[#0f172a]'>Şirkət</h3>
                         <ul className='md:text-[14px] text-[#1e1e1e] my-[10px] flex flex-col gap-3'>
-                            <li><Link >Haqqımızda</Link></li>
+                            <li><Link to={"/haqqimizda"}>Haqqımızda</Link></li>
                             <li><Link to={"/bizimle-elaqe"}>Əlaqə</Link></li>
                             <li><a href="">Vakansiyalar</a></li>
                         </ul>

@@ -20,7 +20,6 @@ function Details() {
         }
     }, [books.title]);
 
-
     return (
         <div>
             <div>

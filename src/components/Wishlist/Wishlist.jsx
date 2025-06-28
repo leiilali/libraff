@@ -15,10 +15,19 @@ function Wishlist() {
   return (
     <div className='container'>
       {wish.length === 0 ? (
-        <EmptyWishlist />
+        <div>
+          <EmptyWishlist />
+          <div className='gap-3 bg-[#F5F5F7] p-5 rounded-2xl mt-10 flex justify-center items-center'>
+            <Link to={"/"}>
+              <button className='bg-[#1E1E1E] py-2 px-4 rounded-full text-white font-semibold nunito-font'>
+                Alış-verişə davam et
+              </button>
+            </Link>
+          </div>
+        </div>
       ) : (
         <div>
-          <div className='w-full grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-2'>
+          <div className='w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-2'>
             {wish.map((item) => (
               <BookCards key={item.id} cardFor='wishlist' item={item} />
             ))}

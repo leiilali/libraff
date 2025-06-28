@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaRegCheckCircle } from "react-icons/fa";
 import { BASKET } from '../../context/BasketContext';
@@ -6,7 +6,7 @@ import BasketPageMobile from './BasketPageMobile';
 import BasketPageDesktop from './BasketPageDesktop';
 
 function BasketPage() {
-    const { basket, deleteBasket, clearBasket } = useContext(BASKET);
+    const { basket, deleteBasket, clearBasket, addToBasket, updateItemCount} = useContext(BASKET);
 
     useEffect(() => {
         document.title = "Səbət | Libraff"
@@ -22,6 +22,8 @@ function BasketPage() {
                     basket={basket}
                     deleteBasket={deleteBasket}
                     clearBasket={clearBasket}
+                    addToBasket={addToBasket}
+                    updateItemCount={updateItemCount}
                 />
             </div>
 
@@ -31,6 +33,8 @@ function BasketPage() {
                     basket={basket}
                     deleteBasket={deleteBasket}
                     clearBasket={clearBasket}
+                    addToBasket={addToBasket}
+                    updateItemCount={updateItemCount}
                 />
             </div>
 

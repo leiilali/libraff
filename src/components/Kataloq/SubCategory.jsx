@@ -12,8 +12,6 @@ import '../../style/booksPagination.css'
 import CategoryBarMobile from './CategoryBarMobile';
 import FilterBarMobile from './FilterBarMobile';
 import { Pagination } from 'antd';
-// import { IoChevronBack, IoChevronForward } from 'react-icons/io5'; // or any other icons you like
-
 
 
 // Helper function to find category hierarchy by code
@@ -231,9 +229,9 @@ function SubCategory() {
                                     }}
                                     defaultCurrent={1}
                                     current={page}
-                                    total={50}
+                                    total={100}
+                                    // total={data.totalBookCount || 0}
                                     defaultPageSize={limit}
-
                                 />
                             </div>
                         </div>

@@ -33,7 +33,8 @@ function BestSellerBooks({ book }) {
         e.preventDefault();
         e.stopPropagation();
 
-        addToBasket(book);
+        // addToBasket(book);
+        addToBasket({ ...book, count: 1 }); 
         setShowBasketPopup(true);
         setTimeout(() => setShowBasketPopup(false), 3000);
     };

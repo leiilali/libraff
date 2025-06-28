@@ -51,7 +51,7 @@ function CategorySidebar({
                                         
                                             {sub.name}
                                         </div>
-
+ 
                                         {activeSubCategoryCode === sub.code && sub.subCategories && (
                                             <ul className="px-3">
                                                 {sub.subCategories.map((subsub) => (

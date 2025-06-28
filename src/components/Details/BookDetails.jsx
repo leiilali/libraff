@@ -19,35 +19,39 @@ function BookDetails({ books }) {
     const [showBasketPopup, setshowBasketPopup] = useState(false)
     const [showWishPopup, setShowWishPopup] = useState(false);
 
-
     const isInWishlist = wish.some(w => w.id === books.id);
+    const screenSize = () => window.innerWidth >= 768;
 
     const toggleWishlist = (e) => {
-        e.preventDefault(); 
+        e.preventDefault();
         e.stopPropagation();
 
         if (isInWishlist) {
             deleteWishList(books.id);
         } else {
             addWishList(books);
-            setShowWishPopup(true);
-            setTimeout(() => {
-                setShowWishPopup(false);
-            }, 3000);
+            if (screenSize()) {
+                setShowWishPopup(true);
+                setTimeout(() => {
+                    setShowWishPopup(false);
+                }, 3000);
+            }
         }
     };
-
     const handleAddToBasket = (e) => {
         e.preventDefault();
         e.stopPropagation();
 
         addToBasket(books);
-        setshowBasketPopup(true);
-
-        setTimeout(() => {
-            setshowBasketPopup(false);
-        }, 5000);
+        // addToBasket({ ...books, count: 1 }); 
+        if (screenSize()) {
+            setshowBasketPopup(true);
+            setTimeout(() => {
+                setshowBasketPopup(false);
+            }, 5000);
+        }
     };
+
 
     return (
         <div>

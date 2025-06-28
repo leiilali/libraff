@@ -1,6 +1,5 @@
 import React, {createContext, useState } from 'react'
 
-
 export const WISHLIST = createContext([])
 
 function WishContext({ children }) {
@@ -14,7 +13,6 @@ function WishContext({ children }) {
   function clearWishList() {
     localStorage.removeItem("wishlist")
     setWish([])
-
   }
   function deleteWishList(id) {
     const yeniArr = wish.filter(item => item.id != id)

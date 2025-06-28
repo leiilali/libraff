@@ -15,7 +15,6 @@ function Basket() {
                 setIsOpen(false);
             }
         }
-
         document.addEventListener("mousedown", clickOutside);
         return () => {
             document.removeEventListener("mousedown", clickOutside);
@@ -72,7 +71,7 @@ function Basket() {
                                     </div>
                                     <div className='flex flex-col gap-1'>
                                         <h2 className='text-[#ef3340] text-[14px] nunito-font font-light'>{item.title}</h2>
-                                        <h4 className='text-[#0f172a] text-[14px] nunito-font font-light'>1 x {item.discountedPrice} ₼</h4>
+                                        <h4 className='text-[#0f172a] text-[14px] nunito-font font-light'> {item.count} x {item.discountedPrice} ₼</h4>
                                     </div>
                                 </Link>
 

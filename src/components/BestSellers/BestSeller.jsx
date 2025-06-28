@@ -22,13 +22,19 @@ function BestSeller() {
         });
     }, []);
 
-    useEffect(()=>{
+    useEffect(() => {
         document.title = "Bestsellerlər | Libraff"
     }, [])
 
-
-    const selectedLangCode = languageMap[activeLanguage];
-    const filteredBooks = bestSeller.filter(book => book.language === selectedLangCode);
+    // const selectedLangCode = languageMap[activeLanguage];
+    // const filteredBooks = bestSeller.filter(book => book.language === selectedLangCode);
+    let filteredBooks = [];
+    if (activeLanguage === 'Uşaq Ədəbiyyatı') {
+        filteredBooks = bestSeller.filter(book => book.categoryCode === 'usaqedebiyyati');
+    } else {
+        const selectedLangCode = languageMap[activeLanguage];
+        filteredBooks = bestSeller.filter(book => book.language === selectedLangCode);
+    }
 
     return (
         <div className="container">
@@ -50,7 +56,7 @@ function BestSeller() {
                 </p>
             </div>
 
-            <div className="nunito-font my-4 text-[14px] text-[#333] font-light flex gap-3 items-center">
+            <div className="nunito-font my-4 text-[14px] text-[#333] font-light flex flex-col md:flex-row gap-3 md:items-center">
                 {languages.map(lang => (
                     <button
                         key={lang}

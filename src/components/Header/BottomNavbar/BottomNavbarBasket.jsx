@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useEffect } from 'react';
+import React, { useContext, useRef, useEffect, useState } from 'react';
 import { IoCloseSharp } from "react-icons/io5";
 import { RiCloseCircleFill } from "react-icons/ri";
 import { BASKET } from '../../../context/BasketContext';
@@ -13,7 +13,7 @@ function BottomNavbarBasket({ setIsOpen }) {
     useEffect(() => {
         function clickOutside(event) {
             if (!basketRef.current?.contains(event.target)) {
-                setIsOpen(false); 
+                setIsOpen(false);
             }
         }
         document.addEventListener("mousedown", clickOutside);
@@ -21,6 +21,10 @@ function BottomNavbarBasket({ setIsOpen }) {
             document.removeEventListener("mousedown", clickOutside);
         };
     }, [setIsOpen]);
+
+    const totalPrice = basket
+        .reduce((sum, item) => sum + item.discountedPrice * (item.count || 1), 0)
+        .toFixed(2);
 
     return (
         <div className='relative' ref={basketRef}>
@@ -56,7 +60,7 @@ function BottomNavbarBasket({ setIsOpen }) {
                                         </div>
                                         <div className='flex flex-col gap-1'>
                                             <h2 className='text-[#ef3340] text-[16px] nunito-font font-light'>{item.title}</h2>
-                                            <h4 className='text-[#0f172a] text-[16px] nunito-font font-light'>1 x {item.discountedPrice} ₼</h4>
+                                            <h4 className='text-[#0f172a] text-[16px] nunito-font font-light'>{item.count} x {item.discountedPrice} ₼</h4>
                                         </div>
                                     </div>
                                     <button
@@ -81,7 +85,7 @@ function BottomNavbarBasket({ setIsOpen }) {
                 <div className='pb-3 px-5 bg-[#F5F5F7]'>
                     <div className='flex justify-between items-center nunito-font text-[#0f172a] py-5'>
                         <h3 className='font-light text-[16px]'>Cəmi:</h3>
-                        <h2 className='text-[20px] font-semibold'>36.16 ₼</h2>
+                        <h2 className='text-[20px] font-semibold'>{totalPrice} ₼</h2>
                     </div>
                     <Link to={"/sebet"} onClick={() => setIsOpen(false)} className='py-6 text-center '>
                         <h2 className='text-white bg-[#1E1E1E] py-2 rounded-full nunito-font font-semibold cursor-pointer'>Səbət</h2>

@@ -22,7 +22,7 @@ function FooterMobile() {
             label: 'Şirkət',
             children:
                 <ul className='md:text-[14px] text-[#1e1e1e] my-[10px] flex flex-col gap-3'>
-                    <li><a href="">Haqqımızda</a></li>
+                    <li><Link to={"/haqqimizda"} href="">Haqqımızda</Link></li>
                     <li><Link to={"/bizimle-elaqe"}>Əlaqə</Link></li>
                     <li><a href="">Vakansiyalar</a></li>
                 </ul>
