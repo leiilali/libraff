@@ -62,6 +62,7 @@ function App() {
         </Route>
         <Route path='/qeydiyyat' element={<Registration />} />
         <Route path='/login2' element={<LoginPage />} />
+        
 
       </Routes>
 

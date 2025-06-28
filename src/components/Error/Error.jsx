@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 function Error() {
@@ -9,7 +9,7 @@ function Error() {
     }, [])
 
     return (
-        <div className='container !mx-[100px] !my-[80px]'>
+        <div className='container  !my-[80px]'>
             <div className='lg:flex lg:items-center lg:gap-[100px]'>
                 <div className='text-[#E84C3D] nunito-font font-semibold flex flex-col items-center'>
                     <h2 className='text-[86px]'>404</h2>

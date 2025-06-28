@@ -30,9 +30,9 @@ function HeaderTop() {
         }
     };
     const handleCategorySelect = (code) => {
-        setMenuOpen(false);              
-        navigate('/subkateqoriya', { state: { code } });  
-      };
+        setMenuOpen(false);
+        navigate('/subkateqoriya', { state: { code } });
+    };
     const closeMenu = () => setMenuOpen(false);
 
 
@@ -74,9 +74,9 @@ function HeaderTop() {
                 <div className='flex items-center gap-3 text-[#0f172a] cursor-pointer'>
                     <MyAccount />
                     <Link to={"wishlist-view"} className='relative'>
-                        <LuHeart className='text-[27px] hidden xl:block ' />
+                        <LuHeart className='text-[27px] ' />
                         {wish.length > 0 && (
-                            <span className="absolute -top-1 -right-1 bg-[#EF3441] nunito-font text-white text-[11px] w-[16px] h-[16px] flex items-center justify-center rounded-full font-semibold">
+                            <span className="absolute -top-1 -right-1.5 bg-[#EF3441] nunito-font text-white text-[11px] w-[16px] h-[16px] flex items-center justify-center rounded-full font-semibold">
                                 {wish.length}
                             </span>
                         )}
@@ -118,10 +118,10 @@ function HeaderTop() {
                 </div>
 
                 <HeaderMenu
-                onCategorySelect={handleCategorySelect}
-                closeMenu={closeMenu}
+                    onCategorySelect={handleCategorySelect}
+                    closeMenu={closeMenu}
 
-                 />
+                />
             </div>
 
 

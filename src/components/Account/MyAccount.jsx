@@ -23,8 +23,6 @@ function MyAccount() {
         };
     }, []);
 
-    
-
     return (
         <div className='relative' ref={dropdownRef}>
             <LuCircleUser
