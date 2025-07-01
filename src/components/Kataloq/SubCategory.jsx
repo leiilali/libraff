@@ -7,7 +7,6 @@ import { getAllCategory, getBooksByCategoryCode } from '../../services/api';
 import { useLocation } from 'react-router-dom';
 import CategorySidebar from './CategorySidebar';
 import FilterSidebar from './FilterSidebar';
-import { Select } from 'antd';
 import '../../style/booksPagination.css'
 import CategoryBarMobile from './CategoryBarMobile';
 import FilterBarMobile from './FilterBarMobile';
