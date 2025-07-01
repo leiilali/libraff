@@ -9,6 +9,10 @@ function CategoryBarMobile({
     onCategoryClick,
     onSubCategoryClick,
     onSubSubCategoryClick,
+    closeCategoryBar,
+    page,
+    setPage,
+    limit
 }) {
 
     // const {pathname} = useLocation()
@@ -39,6 +43,7 @@ function CategoryBarMobile({
                                             onClick={(e) => {
                                                 e.stopPropagation();
                                                 onSubCategoryClick(sub);
+
                                             }}
                                             className={`cursor-pointer text-[16px] text-[#4B5160] px-2.5 rounded-lg font-light py-1.5 hover:bg-[#F5F5F7] hover:text-[#EF3441] relative ${activeSubCategoryCode === sub.code ? "font-semibold" : ""
                                                 }`}
@@ -58,6 +63,8 @@ function CategoryBarMobile({
                                                             onClick={(e) => {
                                                                 e.stopPropagation();
                                                                 onSubSubCategoryClick(subsub);
+                                                                if (closeCategoryBar) closeCategoryBar(); 
+
                                                             }}
                                                             className={`cursor-pointer text-[16px] text-[#6B7280] rounded-lg px-2 font-light py-1.5 hover:bg-[#F5F5F7] hover:text-[#EF3441] relative ${activeSubSubCategoryCode === subsub.code ? "font-semibold" : ""
                                                                 }`}

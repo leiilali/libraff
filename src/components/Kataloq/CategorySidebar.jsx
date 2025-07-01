@@ -9,6 +9,8 @@ function CategorySidebar({
     onCategoryClick,
     onSubCategoryClick,
     onSubSubCategoryClick,
+    page,
+    limit
 }) {
 
     // const {pathname} = useLocation()

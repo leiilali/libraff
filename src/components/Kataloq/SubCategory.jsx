@@ -137,31 +137,37 @@ function SubCategory() {
                                 activeCategoryCode={activeCategoryCode}
                                 activeSubCategoryCode={activeSubCategoryCode}
                                 activeSubSubCategoryCode={activeSubSubCategoryCode}
+                                page={page}
+                                limit={limit}
                                 onCategoryClick={(category) => {
                                     setActiveCategoryCode(category.code);
                                     setActiveSubCategoryCode(null);
                                     setActiveSubSubCategoryCode(null);
                                     setSelectedCategory(category.name);
-                                    getBooksByCategoryCode(category.code).then((res) =>
-                                        setBooks(res.books || [])
+                                    setPage(1);
+                                    getBooksByCategoryCode(category.code, 1, limit).then((res) =>
+                                        setBooks(sortBooks(res.books || [], sortOption))
                                     );
                                 }}
                                 onSubCategoryClick={(sub) => {
                                     setActiveSubCategoryCode(sub.code);
                                     setActiveSubSubCategoryCode(null);
                                     setSelectedCategory(sub.name);
-                                    getBooksByCategoryCode(sub.code).then((res) =>
-                                        setBooks(res.books || [])
+                                    setPage(1);
+                                    getBooksByCategoryCode(sub.code, 1, limit).then((res) =>
+                                        setBooks(sortBooks(res.books || [], sortOption))
                                     );
                                 }}
                                 onSubSubCategoryClick={(subsub) => {
                                     setActiveSubSubCategoryCode(subsub.code);
                                     setSelectedCategory(subsub.name);
-                                    getBooksByCategoryCode(subsub.code).then((res) =>
-                                        setBooks(res.books || [])
-                                    )
+                                    setPage(1);
+                                    getBooksByCategoryCode(subsub.code, 1, limit).then((res) =>
+                                        setBooks(sortBooks(res.books || [], sortOption))
+                                    );
                                 }}
                             />
+
                         </div>
                         <div className='w-20%'>
                             <FilterSidebar />
@@ -216,8 +222,8 @@ function SubCategory() {
                                         <BookCards key={book.id} item={book} cardFor="main" />
                                     ))
                                 ) : (
-                                    <div className='flex justify-center items-center'>
-                                        <p className="text-gray-600">Kitab tapılmadı.</p>
+                                    <div className='flex justify-center items-center w-full py-4'>
+                                        <p className="text-[#767676] text-[14px] nunito-font font-light w-full">Kitab tapılmadı.</p>
                                     </div>
 
                                 )}
@@ -257,6 +263,9 @@ function SubCategory() {
                         {overlay === 'kateqoriyalar' && (
                             <div>
                                 <CategoryBarMobile
+                                    page={page}
+                                    setPage={setPage}
+                                    limit={limit}
                                     menu={data.menu || []}
                                     activeCategoryCode={activeCategoryCode}
                                     activeSubCategoryCode={activeSubCategoryCode}
@@ -266,25 +275,29 @@ function SubCategory() {
                                         setActiveSubCategoryCode(null);
                                         setActiveSubSubCategoryCode(null);
                                         setSelectedCategory(category.name);
-                                        getBooksByCategoryCode(category.code).then((res) =>
-                                            setBooks(res.books || [])
+                                        setPage(1);
+                                        getBooksByCategoryCode(category.code, 1, limit).then((res) =>
+                                            setBooks(sortBooks(res.books || [], sortOption))
                                         );
                                     }}
                                     onSubCategoryClick={(sub) => {
                                         setActiveSubCategoryCode(sub.code);
                                         setActiveSubSubCategoryCode(null);
                                         setSelectedCategory(sub.name);
-                                        getBooksByCategoryCode(sub.code).then((res) =>
-                                            setBooks(res.books || [])
+                                        setPage(1);
+                                        getBooksByCategoryCode(sub.code, 1, limit).then((res) =>
+                                            setBooks(sortBooks(res.books || [], sortOption))
                                         );
                                     }}
                                     onSubSubCategoryClick={(subsub) => {
                                         setActiveSubSubCategoryCode(subsub.code);
                                         setSelectedCategory(subsub.name);
-                                        getBooksByCategoryCode(subsub.code).then((res) =>
-                                            setBooks(res.books || [])
-                                        )
+                                        setPage(1);
+                                        getBooksByCategoryCode(subsub.code, 1, limit).then((res) =>
+                                            setBooks(sortBooks(res.books || [], sortOption))
+                                        );
                                     }}
+                                    closeCategoryBar={closeOverlay}
                                 />
                             </div>
                         )}
