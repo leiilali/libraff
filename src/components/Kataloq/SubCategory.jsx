@@ -234,15 +234,14 @@ function SubCategory() {
                                     <div className='flex justify-center items-center w-full py-4'>
                                         <p className="text-[#767676] text-[14px] nunito-font font-light w-full">Kitab tapılmadı.</p>
                                     </div>
-
                                 )} */}
                                 {filteredBooks.length > 0 ? (
                                     filteredBooks.map((book) => (
                                         <BookCards key={book.id} item={book} cardFor="main" />
                                     ))
                                 ) : (
-                                    <div className='flex justify-center items-center w-full py-4'>
-                                        <p className="text-[#767676] text-[14px] nunito-font font-light w-full">Kitab tapılmadı.</p>
+                                    <div className='flex justify-start items-start w-full py-10'>
+                                        <p className="text-[#767676] text-[14px] nunito-font font-light">Kitab tapılmadı.</p>
                                     </div>
                                 )}
                             </div>
@@ -258,8 +257,6 @@ function SubCategory() {
                                 />
                             </div>
                         </div>
-
-
                     </div>
                 </div>
             </div>
@@ -275,7 +272,7 @@ function SubCategory() {
                         </button>
                     </div>
                     <div className='bg-[#D6D6D6] h-[1px] w-full'></div>
-
+                    
                     <div className='flex-1 overflow-auto p-3'>
                         {overlay === 'kateqoriyalar' && (
                             <div>

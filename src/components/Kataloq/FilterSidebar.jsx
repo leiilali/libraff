@@ -68,7 +68,6 @@ function FilterSidebar({ priceRange, setPriceRange }) {
             label: <h3 className="text-[16px] nunito-font font-semibold">Qiymət</h3>,
             children: (
                 <div className="px-2 py-1">
-
                     <div className="flex items-center justify-between mb-4">
                         {/* price qutulari */}
                         <div className="flex items-center gap-1 border border-[#E1E1E1] hover:border-[#EF3441] transition duration-300 rounded-md px-2 py-2 w-[45%]">
@@ -141,7 +140,7 @@ function FilterSidebar({ priceRange, setPriceRange }) {
                 items={languages}
             />
 
-            <div className="bg-[#eee] h-[1px] w-full mb-5"></div>
+            <div className="bg-[#eee] h-[1px] w-full"></div>
 
             <Collapse
                 activeKey={activeKeys}
