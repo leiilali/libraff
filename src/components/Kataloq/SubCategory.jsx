@@ -48,6 +48,17 @@ function SubCategory() {
     const [page, setPage] = useState(1)
     const [object, setObject] = useState([])
 
+
+    // for filtering book according price
+    const [priceRange, setPriceRange] = useState([0, 100])
+    const filteredBooks = books.filter(book => {
+        return (
+            book.discountedPrice >= priceRange[0] &&
+            book.discountedPrice <= priceRange[1]
+        );
+    });
+    
+
     const location = useLocation();
     const { code } = location.state || {};
     const closeOverlay = () => setOverlay(null);
@@ -170,7 +181,10 @@ function SubCategory() {
 
                         </div>
                         <div className='w-20%'>
-                            <FilterSidebar />
+                            <FilterSidebar
+                                priceRange={priceRange}
+                                setPriceRange={setPriceRange}
+                            />
                         </div>
                     </div>
 
@@ -179,11 +193,6 @@ function SubCategory() {
                             <div className='flex items-center gap-2'>
                                 <h2 className='text-[14px] text-[#767676] font-light'>Çeşidlə:</h2>
                                 <select
-                                    // onChange={(e) => {
-                                    //     const selected = e.target.value;
-                                    //     setSortOption(selected);
-                                    //     setBooks(sortBooks(books, selected)); 
-                                    // }}
                                     onChange={(e) => {
                                         const selected = e.target.value;
                                         setSortOption(selected);
@@ -217,7 +226,7 @@ function SubCategory() {
                         </div>
                         <div>
                             <div className='grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4'>
-                                {books.length > 0 ? (
+                                {/* {books.length > 0 ? (
                                     books.map((book) => (
                                         <BookCards key={book.id} item={book} cardFor="main" />
                                     ))
@@ -226,6 +235,15 @@ function SubCategory() {
                                         <p className="text-[#767676] text-[14px] nunito-font font-light w-full">Kitab tapılmadı.</p>
                                     </div>
 
+                                )} */}
+                                {filteredBooks.length > 0 ? (
+                                    filteredBooks.map((book) => (
+                                        <BookCards key={book.id} item={book} cardFor="main" />
+                                    ))
+                                ) : (
+                                    <div className='flex justify-center items-center w-full py-4'>
+                                        <p className="text-[#767676] text-[14px] nunito-font font-light w-full">Kitab tapılmadı.</p>
+                                    </div>
                                 )}
                             </div>
                             <div className='flex items-center justify-center mt-10 custom-pagination'>
@@ -235,7 +253,6 @@ function SubCategory() {
                                     }}
                                     defaultCurrent={1}
                                     current={page}
-                                    // total={100}
                                     total={object.totalBookCount || 0}
                                     defaultPageSize={limit}
                                 />

@@ -3,18 +3,25 @@ import { Collapse, Checkbox, Slider } from 'antd';
 import { LuPlus, LuMinus } from 'react-icons/lu';
 import { IoMdCloseCircle } from "react-icons/io";
 import '../../style/filterSidebar.css';
+function FilterSidebar({ priceRange, setPriceRange }) {
 
-function FilterSidebar() {
     const [activeKeys, setActiveKeys] = useState(['1']);
     const [checkedList, setCheckedList] = useState([]);
-    const [priceRange, setPriceRange] = useState([0, 100]);
-    // const [minMax , setMinMax] = useState([0, 5])
+    
+    const handleInputChange = (e, type) => {
+        const value = Number(e.target.value)
+        if (isNaN(value)) return;
+        if (type === 'min') {
+            if (value <= priceRange[1] && value >= 0) {
+                setPriceRange([value, priceRange[1]]);
+            }
+        } else if (type === 'max') {
+            if (value >= priceRange[0] && value <= 100) {
+                setPriceRange([priceRange[0], value]);
+            }
+        }
+    }
 
-    // useEffect(()=>{
-    //     const sortByProduct = data.sort((a,b) => a.price - b.price)
-    //     const min = sortByProduct[0]?.price
-    //     const max = sortByProduct.at[-1]?.price
-    // }) 
     const languages = [
         {
             key: '1',
@@ -42,7 +49,6 @@ function FilterSidebar() {
                     value={checkedList}
                     onChange={(checkedValues) => {
                         setCheckedList(checkedValues);
-                        console.log('Checked languages:', checkedValues);
                     }}
                 >
                     <Checkbox value="aze" className="uppercase mb-1 custom-checkbox nunito-font font-light">aze</Checkbox>
@@ -71,6 +77,9 @@ function FilterSidebar() {
                                 min={0}
                                 max={priceRange[1]}
                                 value={priceRange[0]}
+                                onChange={(e) => {
+                                    handleInputChange(e, 'min')
+                                }}
                                 className="w-full outline-none text-sm"
                             />
                             <span className="text-xs text-[#666]">₼</span>
@@ -84,6 +93,9 @@ function FilterSidebar() {
                                 min={priceRange[0]}
                                 max={100}
                                 value={priceRange[1]}
+                                onChange={(e) => {
+                                    handleInputChange(e, 'max')
+                                }}
                                 className="w-full outline-none text-sm"
                             />
                             <span className="text-xs text-[#666]">₼</span>

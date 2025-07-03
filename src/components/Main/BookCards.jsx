@@ -12,18 +12,10 @@ function BookCards({ cardFor = 'main', item }) {
 
     const { wish, addWishList, deleteWishList } = useContext(WISHLIST)
     const [showWishPopup, setShowWishPopup] = useState(false);
+
     const isInWishlist = wish.some(w => w.id === item.id);
     const screenSize = () => window.innerWidth >= 768;
-    // const toggleWishlist = (e) => {
-    //     e.preventDefault();
-    //     e.stopPropagation();
 
-    //     if (isInWishlist) {
-    //         deleteWishList(item.id);
-    //     } else {
-    //         addWishList(item);
-    //     }
-    // };
     const toggleWishlist = (e) => {
         e.preventDefault();
         e.stopPropagation();
@@ -42,7 +34,6 @@ function BookCards({ cardFor = 'main', item }) {
     return (
         <>
             {showWishPopup && (<WishPopUp book={item} closePopup={() => setShowWishPopup(false)} />)}
-
             <Link to={`/kitab/${item.id}`}>
                 <div className='group py-5 relative hover:shadow-2xl transition duration-300 rounded-2xl'>
                     <div
