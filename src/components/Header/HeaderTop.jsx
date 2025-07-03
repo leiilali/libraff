@@ -1,19 +1,15 @@
 import React, { useContext, useEffect, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom';
 import { MdOutlineMenu } from "react-icons/md";
 import { IoSearch } from "react-icons/io5";
 import { IoMdClose } from "react-icons/io";
 import { LuHeart } from "react-icons/lu";
-
-
-import logo from "../../assets/images/logo/libraffLogo.png"
+import { WISHLIST } from '../../context/WishContext';
 import HeaderMenu from './HeaderMenu';
-import { Link, useNavigate } from 'react-router-dom';
 import Basket from '../Basket/Basket';
 import MyAccount from '../Account/MyAccount';
 import Kataloq from '../Kataloq/Kataloq';
-import { WISHLIST } from '../../context/WishContext';
-
-
+import logo from "../../assets/images/logo/libraffLogo.png"
 
 function HeaderTop() {
     const { wish } = useContext(WISHLIST);
@@ -35,7 +31,6 @@ function HeaderTop() {
     };
     const closeMenu = () => setMenuOpen(false);
 
-
     return (
         <div className=' flex flex-col gap-4 lg:pb-6 lg:pt-4'>
             <div className='flex justify-between items-center lg:gap-6'>
@@ -47,7 +42,6 @@ function HeaderTop() {
                         </Link>
                     </div>
                 </div>
-
 
                 {/* search bar for desktop */}
                 <div className='flex gap-5'>
@@ -85,7 +79,6 @@ function HeaderTop() {
                 </div>
             </div>
 
-
             {/* search bar for mobile menu */}
             <div className='border border-[#e2e8f0] rounded-full text-[16px] flex pr-4 font-light focus-within:ring-1 focus-within:ring-gray-300 focus-within:shadow-md transition lg:hidden'>
                 <input
@@ -100,8 +93,6 @@ function HeaderTop() {
                     <IoSearch className='text-xl' />
                 </button>
             </div>
-
-
 
             {menuOpen && (
                 <div
@@ -123,8 +114,6 @@ function HeaderTop() {
 
                 />
             </div>
-
-
         </div>
     )
 }

@@ -5,8 +5,11 @@ import { Link } from 'react-router-dom';
 function BasketItemMobile({ item, deleteBasket, updateItemCount }) {
 
     const incDec = (x) => {
-        if (item.count + x > 0) {
-            updateItemCount(item.id, item.count + x);
+        const newCount = item.count + x;
+        if (newCount > 0) {
+            updateItemCount(item.id, newCount);
+        } else {
+            deleteBasket(item.id);
         }
     };
 
@@ -50,7 +53,12 @@ function BasketItemMobile({ item, deleteBasket, updateItemCount }) {
                         <td className="p-4 border-b border-[#E1E1E1] text-[16px] font-light text-[#767676]">Say</td>
                         <td className="p-4 border-b border-[#E1E1E1]">
                             <div className='flex items-center gap-2'>
-                                <button onClick={() => incDec(-1)} className="px-2 bg-gray-200 rounded">-</button>
+                                <button
+                                    onClick={(e) => {
+                                        incDec(-1);
+                                        e.stopPropagation();
+                                        e.preventDefault();
+                                    }} className="px-2 bg-gray-200 rounded">-</button>
                                 <span>{item.count} ədəd</span>
                                 <button onClick={() => incDec(1)} className="px-2 bg-gray-200 rounded">+</button>
                             </div>

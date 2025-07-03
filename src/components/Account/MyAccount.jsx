@@ -29,7 +29,7 @@ function MyAccount() {
                 onClick={() => setIsOpen(!isOpen)}
                 className='xl:hidden text-[28px] cursor-pointer'
             />
-
+            
             <div
                 onClick={() => setIsOpen(!isOpen)}
                 className='items-center gap-2 bg-[#F5F6FD] py-2.5 px-5 rounded-full hidden xl:flex cursor-pointer'>

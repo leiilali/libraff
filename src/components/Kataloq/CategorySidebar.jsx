@@ -9,12 +9,9 @@ function CategorySidebar({
     onCategoryClick,
     onSubCategoryClick,
     onSubSubCategoryClick,
-    page,
-    limit
 }) {
 
     // const {pathname} = useLocation()
-
     return (
         <div className='nunito-font border border-[#EEEEEE] rounded-2xl p-3'>
             <h3 className='text-[16px] font-semibold'>Kateqoriyalar</h3>
@@ -50,10 +47,10 @@ function CategorySidebar({
                                             {activeSubCategoryCode === sub.code && !activeSubSubCategoryCode && (
                                                 <span className="bg-[#EF3441] rounded-full absolute left-[-16px] top-1/2 -translate-y-1/2 w-[3px] h-6"></span>
                                             )}
-                                        
+
                                             {sub.name}
                                         </div>
- 
+
                                         {activeSubCategoryCode === sub.code && sub.subCategories && (
                                             <ul className="px-3">
                                                 {sub.subCategories.map((subsub) => (

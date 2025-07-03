@@ -10,9 +10,6 @@ import BottomNavbarAccount from './BottomNavbarAccount';
 import BottomNavbarContact from './BottomNavbarContact';
 import BottomNavbarSearch from './BottomNavbarSearch';
 
-
-
-
 function BottomNavbar() {
     const [show, setShow] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
@@ -39,7 +36,7 @@ function BottomNavbar() {
 
     return (
         <>
-            <div className={`fixed xl:hidden bottom-[-2px] nunito-font left-0 right-0 z-3 bg-white border-t border-gray-300 h-14 flex justify-around items-center transition-transform duration-300 ${show ? 'translate-y-0' : 'translate-y-full'}`}>
+            <div className={`fixed xl:hidden lg:hidden bottom-[-2px] nunito-font left-0 right-0 z-3 bg-white border-t border-gray-300 h-14 flex justify-around items-center transition-transform duration-300 ${show ? 'translate-y-0' : 'translate-y-full'}`}>
                 <button onClick={() => setMenuOpen(true)} className="flex flex-col items-center">
                     <MdOutlineMenu className='text-[25px] text-[#94a3b8]' />
                     <p className='text-[12px] text-[#94a3b8]'>Menyu</p>
@@ -62,7 +59,6 @@ function BottomNavbar() {
                 </button>
             </div>
 
-
             {/* menu */}
             {menuOpen && (
                 <div
@@ -79,7 +75,6 @@ function BottomNavbar() {
                 <HeaderMenu closeMenu={() => setMenuOpen(false)} />
             </div>
 
-
             {/* search */}
             {searchOpen && (
                 <div
@@ -91,10 +86,9 @@ function BottomNavbar() {
                 className={`fixed bottom-0  w-full z-50 transition-transform duration-300 ease-in-out ${searchOpen ? 'translate-y-0' : 'translate-y-full'
                     }`}>
                 <div className="bg-white rounded-t-2xl shadow-lg">
-                    <BottomNavbarSearch isOpen={searchOpen} setIsOpen={setSearchOpen}/>
+                    <BottomNavbarSearch isOpen={searchOpen} setIsOpen={setSearchOpen} />
                 </div>
             </div>
-
 
             {/* basket */}
             {basketOpen && (
@@ -112,7 +106,6 @@ function BottomNavbar() {
                 </div>
             </div>
 
-
             {/* my account */}
             {accountOpen && (
                 <div
@@ -128,8 +121,6 @@ function BottomNavbar() {
                 </div>
             </div>
 
-
-
             {/* contact */}
             {contactOpen && (
                 <div
@@ -144,15 +135,7 @@ function BottomNavbar() {
                     <BottomNavbarContact isOpen={contactOpen} setIsOpen={setContactOpen} />
                 </div>
             </div>
-
-
-
-
-
-
         </>
-
-
     );
 }
 

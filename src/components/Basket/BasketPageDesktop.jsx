@@ -2,6 +2,11 @@ import React from 'react';
 import BasketItemDesktop from './BasketItemDesktop';
 
 function BasketPageDesktop({ basket, deleteBasket, updateItemCount }) {
+
+    const totalPriceOfBasket = basket.reduce((total, item) => {
+        return total + item.discountedPrice * item.count;
+    }, 0).toFixed(2);
+    
     return (
         <div>
             {basket?.length === 0 ? (
@@ -37,7 +42,7 @@ function BasketPageDesktop({ basket, deleteBasket, updateItemCount }) {
                     <div className='border-[1px] mt-10 rounded-2xl border-[#E1E1E1] py-6 px-6 flex justify-end nunito-font'>
                         <div className='flex items-center gap-20'>
                             <h3 className='text-[#a2a2a2] text-[20px] font-semibold'>Cəm məbləğ (₼)</h3>
-                            <h2 className='text-[20px] text-[#1e293b] font-semibold'>10.40 ₼</h2>
+                            <h2 className='text-[20px] text-[#1e293b] font-semibold'> {totalPriceOfBasket} ₼</h2>
                         </div>
                     </div>
                 )}

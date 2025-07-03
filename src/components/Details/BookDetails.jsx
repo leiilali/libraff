@@ -1,6 +1,5 @@
 import React, { useContext, useState } from 'react'
 import { RiShoppingBag4Line } from "react-icons/ri";
-import { LuHeart } from "react-icons/lu";
 import { TbHeart } from "react-icons/tb";
 import { TbHeartFilled } from "react-icons/tb";
 import { BiMessageError } from "react-icons/bi";
@@ -8,9 +7,8 @@ import { BASKET } from '../../context/BasketContext';
 import { WISHLIST } from '../../context/WishContext';
 import BasketPopUp from '../PopUps/BasketPopUp';
 import WishPopUp from '../PopUps/WishlistPopUp';
-
-
-
+import BasketPopUpMobile from '../PopUps/BasketPopUpMobile';
+import WishlistPopUpMobile from '../PopUps/WishlistPopUpMobile';
 
 
 function BookDetails({ books }) {
@@ -18,10 +16,28 @@ function BookDetails({ books }) {
     const { wish, addWishList, deleteWishList } = useContext(WISHLIST)
     const [showBasketPopup, setshowBasketPopup] = useState(false)
     const [showWishPopup, setShowWishPopup] = useState(false);
+    const [showBasketPopupMobile, setShowBasketPopupMobile] = useState(false)
+    const [showWishPopupMobile, setShowWishPopupMobile] = useState(false)
 
     const isInWishlist = wish.some(w => w.id === books.id);
-    const screenSize = () => window.innerWidth >= 768;
+    const screenSize = () => window.innerWidth >= 640;
 
+    // const toggleWishlist = (e) => {
+    //     e.preventDefault();
+    //     e.stopPropagation();
+
+    //     if (isInWishlist) {
+    //         deleteWishList(books.id);
+    //     } else {
+    //         addWishList(books);
+    //         if (screenSize()) {
+    //             setShowWishPopup(true);
+    //             setTimeout(() => {
+    //                 setShowWishPopup(false);
+    //             }, 3000);
+    //         }
+    //     }
+    // };
     const toggleWishlist = (e) => {
         e.preventDefault();
         e.stopPropagation();
@@ -32,23 +48,35 @@ function BookDetails({ books }) {
             addWishList(books);
             if (screenSize()) {
                 setShowWishPopup(true);
-                setTimeout(() => {
-                    setShowWishPopup(false);
-                }, 3000);
+                setTimeout(() => setShowWishPopup(false), 3000);
+            } else {
+                setShowWishPopupMobile(true);
             }
         }
     };
+    // const handleAddToBasket = (e) => {
+    //     e.preventDefault();
+    //     e.stopPropagation();
+
+    //     addToBasket(books);
+    //     // addToBasket({ ...books, count: 1 }); 
+    //     if (screenSize()) {
+    //         setshowBasketPopup(true);
+    //         setTimeout(() => {
+    //             setshowBasketPopup(false);
+    //         }, 5000);
+    //     }
+    // };
     const handleAddToBasket = (e) => {
         e.preventDefault();
         e.stopPropagation();
 
         addToBasket(books);
-        // addToBasket({ ...books, count: 1 }); 
         if (screenSize()) {
             setshowBasketPopup(true);
-            setTimeout(() => {
-                setshowBasketPopup(false);
-            }, 5000);
+            setTimeout(() => setshowBasketPopup(false), 5000);
+        } else {
+            setShowBasketPopupMobile(true);
         }
     };
 
@@ -57,6 +85,9 @@ function BookDetails({ books }) {
         <div>
             {showBasketPopup && <BasketPopUp book={books} closePopup={() => setshowBasketPopup(false)} />}
             {showWishPopup && <WishPopUp book={books} closePopup={() => setShowWishPopup(false)} />}
+            {showBasketPopupMobile && <BasketPopUpMobile book={books} closePopup={() => setShowBasketPopupMobile(false)} />}
+            {showWishPopupMobile && <WishlistPopUpMobile book={books} closePopup={() => setShowWishPopupMobile(false)} />}
+
 
 
             <div className='mt-10 nunito-font'>

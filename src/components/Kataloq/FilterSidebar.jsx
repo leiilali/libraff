@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Collapse, Checkbox, Slider } from 'antd';
 import { LuPlus, LuMinus } from 'react-icons/lu';
 import { IoMdCloseCircle } from "react-icons/io";

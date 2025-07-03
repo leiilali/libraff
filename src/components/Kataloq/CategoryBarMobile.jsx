@@ -10,13 +10,8 @@ function CategoryBarMobile({
     onSubCategoryClick,
     onSubSubCategoryClick,
     closeCategoryBar,
-    page,
-    setPage,
-    limit
 }) {
-
     // const {pathname} = useLocation()
-
     return (
         <div className='nunito-font'>
             <ul>
@@ -51,7 +46,7 @@ function CategoryBarMobile({
                                             {activeSubCategoryCode === sub.code && !activeSubSubCategoryCode && (
                                                 <span className="bg-[#EF3441] rounded-full absolute left-[-16px] top-1/2 -translate-y-1/2 w-[3px] h-6"></span>
                                             )}
-                                        
+
                                             {sub.name}
                                         </div>
 
@@ -63,7 +58,7 @@ function CategoryBarMobile({
                                                             onClick={(e) => {
                                                                 e.stopPropagation();
                                                                 onSubSubCategoryClick(subsub);
-                                                                if (closeCategoryBar) closeCategoryBar(); 
+                                                                if (closeCategoryBar) closeCategoryBar();
 
                                                             }}
                                                             className={`cursor-pointer text-[16px] text-[#6B7280] rounded-lg px-2 font-light py-1.5 hover:bg-[#F5F5F7] hover:text-[#EF3441] relative ${activeSubSubCategoryCode === subsub.code ? "font-semibold" : ""

@@ -4,8 +4,6 @@ import { RiCloseCircleFill } from "react-icons/ri";
 import { BASKET } from '../../../context/BasketContext';
 import { Link } from 'react-router-dom';
 
-
-
 function BottomNavbarBasket({ setIsOpen }) {
     const { basket, deleteBasket } = useContext(BASKET);
     const basketRef = useRef(null);

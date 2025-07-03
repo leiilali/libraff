@@ -2,18 +2,17 @@ import React, { useEffect, useState } from 'react'
 import { AiOutlineAppstore } from "react-icons/ai";
 import { PiSlidersHorizontalBold } from "react-icons/pi";
 import { RxCross2 } from "react-icons/rx";
-import BookCards from '../Main/BookCards';
 import { getAllCategory, getBooksByCategoryCode } from '../../services/api';
+import { Pagination } from 'antd';
 import { useLocation } from 'react-router-dom';
+import BookCards from '../Main/BookCards';
 import CategorySidebar from './CategorySidebar';
 import FilterSidebar from './FilterSidebar';
-import '../../style/booksPagination.css'
 import CategoryBarMobile from './CategoryBarMobile';
 import FilterBarMobile from './FilterBarMobile';
-import { Pagination } from 'antd';
+import '../../style/booksPagination.css'
 
-
-// Helper function to find category hierarchy by code
+// helper function to find category hierarchy by code
 function findParentCategoryByCode(menu, targetCode) {
     for (const category of menu) {
         if (category.code === targetCode) {
@@ -47,6 +46,7 @@ function SubCategory() {
     const [books, setBooks] = useState([])
     const [limit, setLimit] = useState(16)
     const [page, setPage] = useState(1)
+    const [object, setObject] = useState([])
 
     const location = useLocation();
     const { code } = location.state || {};
@@ -79,6 +79,7 @@ function SubCategory() {
             getBooksByCategoryCode(code, page, limit).then((data) => {
                 const sortedBooks = sortBooks(data.books || [], sortOption);
                 setBooks(sortedBooks);
+                setObject(data)
             });
             // getBooksByCategoryCode(code, page, limit).then((data) => {
             //     setBooks(data.books || []);
@@ -234,8 +235,8 @@ function SubCategory() {
                                     }}
                                     defaultCurrent={1}
                                     current={page}
-                                    total={100}
-                                    // total={data.totalBookCount || 0}
+                                    // total={100}
+                                    total={object.totalBookCount || 0}
                                     defaultPageSize={limit}
                                 />
                             </div>

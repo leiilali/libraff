@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { MdOutlineClose } from "react-icons/md";
 import { Link } from 'react-router-dom';
-
+import { BASKET } from '../../context/BasketContext';
 
 function BasketPopUp({ book, closePopup }) {
+    const {basket} = useContext(BASKET)
     if (!book) return null;
 
     return (
@@ -33,8 +34,12 @@ function BasketPopUp({ book, closePopup }) {
 
 
                 <div className='px-5 flex items-center justify-between font-semibold'>
-                    <p className="text-[14px] text-[#767676]">Səbətdə 1 ədəd məhsul var</p>
-                    <h2 className='text-[14px] text-[#0f172a] '>Səbətin ilkin dəyəri: 76.32₼</h2>
+                    <p className="text-[14px] font-light text-[#767676]">
+                        Səbətdə {basket.reduce((total, item) => total + item.count, 0)} ədəd məhsul var
+                    </p>
+                    <h2 className='text-[14px] text-[#0f172a]'>
+                        Səbətin ilkin dəyəri: {basket.reduce((total, item) => total + item.discountedPrice * item.count, 0).toFixed(2)} ₼
+                    </h2>
                 </div>
 
                 <div>

@@ -25,8 +25,6 @@ function KataloqMobile({ onCategorySelect, closeMenu }) {
         setSubOverlayOpen(true);
     };
     
-      
-
     const closeOverlay = () => {
         setOverlayOpen(false);
         setSelectedCategory(null);
@@ -77,7 +75,6 @@ function KataloqMobile({ onCategorySelect, closeMenu }) {
                                             onClick={() => {
                                                 onCategorySelect(sub.code);
                                                 onClick={closeMenu}
-                                                // closeAllOverlays();
                                             }}
                                             className="!text-[17px] !font-semibold text-[#0f172a] text-left w-full"
                                         >

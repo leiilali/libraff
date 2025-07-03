@@ -1,14 +1,11 @@
 import React from 'react';
+import '../../style/respMenu.css';
 import { Link } from 'react-router-dom';
 import { Collapse } from 'antd';
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
-import '../../style/respMenu.css';
 import KataloqMobile from './KataloqMobile';
 
-
 function HeaderMenu({ onCategorySelect, closeMenu }) {
-    
-
     const items = [
         {
             key: '1',
