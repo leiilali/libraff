@@ -11,6 +11,18 @@ function SearchPage() {
     const [results, setResults] = useState([])
     const [limit, setLimit] = useState(16)
     const [page, setPage] = useState(1)
+    const [object, setObject] = useState([])
+
+
+    // for filtering book according price
+    const [priceRange, setPriceRange] = useState([0, 100])
+    const filteredBooks = results.filter(book => {
+        return (
+            book.discountedPrice >= priceRange[0] &&
+            book.discountedPrice <= priceRange[1]
+        );
+    });
+
 
     const [sortOption, setSortOption] = useState("1")
     const sortBooks = (bookList, option) => {
@@ -36,6 +48,7 @@ function SearchPage() {
                 // setResults(response.books)
                 const sortedBooks = sortBooks(response.books || [], sortOption);
                 setResults(sortedBooks);
+                setObject(response)
             })
         }
     }, [searchValue, page, limit])
@@ -50,14 +63,20 @@ function SearchPage() {
         <div className='container flex items-start gap-8'>
 
             <div className='w-[20%] hidden lg:block '>
-                <FilterSidebar />
+                <FilterSidebar
+                    priceRange={priceRange}
+                    setPriceRange={setPriceRange}
+                />
             </div>
 
             <div className='xl:w-[80%] w-full '>
 
                 <div className='flex items-center justify-between'>
                     <h2 className='text-[28px] text-[#0f172a] font-semibold'>Axtarış nəticəsi</h2>
-                    <p className='nunito-font text-[16px] font-light text-[#0f172a]'>Məhsul tapıldı: 10</p>
+                    {/* <p className='nunito-font text-[16px] font-light text-[#0f172a]'>Məhsul tapıldı: 10</p> */}
+                    <p className='nunito-font text-[16px] font-light text-[#0f172a]'>
+                        Məhsul tapıldı: {object.totalCount || 0}
+                    </p>
                 </div>
 
                 <div>
@@ -79,7 +98,8 @@ function SearchPage() {
                                         });
                                     } else {
                                         const sorted = sortBooks(results, selected);
-                                        setResults(sorted);                                    }
+                                        setResults(sorted);
+                                    }
                                 }}
                                 className='text-[14px] nunito-font outline-none bg-white text-[#ed1b2a] font-light pr-2'>
                                 <option value="1">Bütün kitablar</option>
@@ -103,13 +123,24 @@ function SearchPage() {
                     </div>
                     <div>
                         <div>
-                            {!Array.isArray(results) || results.length === 0 ? (
+                            {/* {!Array.isArray(results) || results.length === 0 ? (
                                 <p className='text-center text-gray-500 mt-10'>Axtarış nəticəsi tapılmadı.</p>
                             ) : (
                                 <div className='grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4'>
                                     {results.map((book) => (
                                         <BookCards key={book.id} item={book} />
                                     ))}
+                                </div>
+                            )} */}
+                            {filteredBooks.length > 0 ? (
+                                <div className='grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4'>
+                                    {filteredBooks.map((book) => (
+                                        <BookCards key={book.id} item={book} cardFor="main" />
+                                    ))}
+                                </div>
+                            ) : (
+                                <div className='flex justify-center items-center w-full py-4'>
+                                    <p className="text-[#767676] text-[14px] nunito-font font-light w-full">Kitab tapılmadı.</p>
                                 </div>
                             )}
                         </div>
@@ -120,7 +151,7 @@ function SearchPage() {
                                 }}
                                 defaultCurrent={1}
                                 current={page}
-                                total={50}
+                                total={object.totalCount || 0}
                                 defaultPageSize={limit}
 
                             />

@@ -38,7 +38,11 @@ function BasketPopUpMobile({ book, closePopup }) {
                     <div className='flex items-center justify-between px-2'>
                         <h4 className='nunito-font text-[22px] text-[#0f172a] font-light'>Məhsul səbətə əlavə edilmişdir.</h4>
                         <IoCloseSharp
-                            onClick={() => setShow(false)}
+                            onClick={(e) => {
+                                e.preventDefault();
+                                e.stopPropagation();
+                                setShow(false)
+                            }}
                             className='text-[#767676] text-[28px] cursor-pointer'
                         />
                     </div>

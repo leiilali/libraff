@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { BASKET } from '../../context/BasketContext';
 
 function BasketPopUp({ book, closePopup }) {
-    const {basket} = useContext(BASKET)
+    const { basket } = useContext(BASKET)
     if (!book) return null;
 
     return (
@@ -12,11 +12,16 @@ function BasketPopUp({ book, closePopup }) {
             <div className="bg-white rounded-xl pt-3 overflow-hidden w-[600px] shadow-xl relative">
                 <div className="px-4 pb-2 flex justify-between items-center">
                     <h2 className="font-light text-[22px]">Məhsul səbətə əlavə edildi.</h2>
-                    <button onClick={closePopup}>
+                    <button
+                        onClick={(e) => {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            closePopup();
+                        }}
+                    >
                         <MdOutlineClose className="text-[25px] text-[#767676]" />
                     </button>
                 </div>
-
                 <div className="bg-[#E1E1E1] h-[1px] w-full"></div>
 
 

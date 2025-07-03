@@ -3,6 +3,7 @@ import { RiShoppingBag4Line } from "react-icons/ri";
 import { IoCloseSharp } from "react-icons/io5";
 import { Link } from 'react-router-dom';
 import { BASKET } from '../../context/BasketContext';
+import "../../style/basket.css"
 
 function Basket() {
     const [isOpen, setIsOpen] = useState(false);
@@ -53,7 +54,36 @@ function Basket() {
 
                 <div className="h-[1px] bg-gray-300 w-full my-1"></div>
 
-                <div className='px-5 py-4 flex flex-col items-start gap-4'>
+                {/* <div className='px-5 py-4 flex flex-col items-start gap-4'>
+                    {basket.length === 0 ? (
+                        <p className='text-[#767676] text-[14px] nunito-font font-light text-center w-full'>
+                            Səbət boşdur
+                        </p>
+                    ) : (
+                        basket.map((item, index) => (
+                            <div key={item.id} className="w-full">
+                                <Link to={`/kitab/${item.id}`} className='flex items-center gap-4'>
+                                    <div className='w-[40px] h-[50px]'>
+                                        <img
+                                            src={item.imageSource}
+                                            alt="books_in_basket"
+                                            className='w-full h-full object-cover object-center'
+                                        />
+                                    </div>
+                                    <div className='flex flex-col gap-1'>
+                                        <h2 className='text-[#ef3340] text-[14px] nunito-font font-light'>{item.title}</h2>
+                                        <h4 className='text-[#0f172a] text-[14px] nunito-font font-light'> {item.count} x {item.discountedPrice} ₼</h4>
+                                    </div>
+                                </Link>
+
+                                {index !== basket.length - 1 && (
+                                    <div className="w-full h-[1px] bg-[#EEEEEE] mt-6"></div>
+                                )}
+                            </div>
+                        ))
+                    )}
+                </div> */}
+                <div className='px-5 py-4 flex flex-col items-start gap-4 max-h-[320px] overflow-y-auto custom-scrollbar'>
                     {basket.length === 0 ? (
                         <p className='text-[#767676] text-[14px] nunito-font font-light text-center w-full'>
                             Səbət boşdur
@@ -83,7 +113,9 @@ function Basket() {
                     )}
                 </div>
 
-                <Link to={"/sebet"} className='px-5 py-6 text-center bg-[#F5F5F7]' onClick={()=>setIsOpen(false)}>
+
+
+                <Link to={"/sebet"} className='px-5 py-6 text-center bg-[#F5F5F7]' onClick={() => setIsOpen(false)}>
                     <h2 className='border-2 border-[#EF3441] py-1.5 rounded-full nunito-font font-semibold cursor-pointer'>Səbət</h2>
                 </Link>
             </div>

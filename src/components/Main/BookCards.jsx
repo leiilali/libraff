@@ -37,7 +37,7 @@ function BookCards({ cardFor = 'main', item }) {
             <Link to={`/kitab/${item.id}`}>
                 <div className='group py-5 relative hover:shadow-2xl transition duration-300 rounded-2xl'>
                     <div
-                        className={`absolute xl:right-2 xl:top-6 top-7 right-1.5 transition-opacity duration-200 ${cardFor === 'wishlist' ? 'opacity-100' : isInWishlist ? 'opacity-100' : 'group-hover:opacity-100 opacity-0'
+                        className={`absolute xl:right-2 top-7 right-1.5 transition-opacity duration-200 ${cardFor === 'wishlist' ? 'opacity-100' : isInWishlist ? 'opacity-100' : 'group-hover:opacity-100 opacity-0'
                             }`}
                     >
                         <div

@@ -11,7 +11,13 @@ function WishPopUp({ book, closePopup }) {
             <div className="bg-white rounded-xl pt-3 overflow-hidden w-[600px] shadow-xl relative">
                 <div className="px-4 pb-2 flex justify-between items-center">
                     <h2 className="font-light text-[22px]">Məhsul seçilmişlər siyahısına əlavə edildi.</h2>
-                    <button onClick={closePopup}>
+                    <button
+                        onClick={(e) => {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            closePopup();
+                        }}
+                    >
                         <MdOutlineClose className="text-[25px] text-[#767676]" />
                     </button>
                 </div>

@@ -3,10 +3,10 @@ import { IoCloseSharp } from "react-icons/io5";
 import { Link } from 'react-router-dom';
 import { WISHLIST } from '../../context/WishContext';
 
-function wishPopUpMobile({ book, closePopup }) {
+function WishlistPopUpMobile({ book, closePopup }) {
     const popupRef = useRef(null);
     const [show, setShow] = useState(true);
-    const {wish} = useContext(WISHLIST)
+    const { wish } = useContext(WISHLIST)
 
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -38,8 +38,11 @@ function wishPopUpMobile({ book, closePopup }) {
                     <div className='flex items-center justify-between px-2'>
                         <h4 className='nunito-font text-[22px] text-[#0f172a] font-light'>Məhsul seçilmişlər siyahısına əlavə edilmişdir.</h4>
                         <IoCloseSharp
-                            onClick={() => setShow(false)}
-                            className='text-[#767676] text-[28px] cursor-pointer'
+                            onClick={(e) => {
+                                e.preventDefault();
+                                e.stopPropagation();
+                                setShow(false)
+                            }} className='text-[#767676] text-[28px] cursor-pointer'
                         />
                     </div>
                 </div>
@@ -73,7 +76,7 @@ function wishPopUpMobile({ book, closePopup }) {
     );
 }
 
-export default wishPopUpMobile;
+export default WishlistPopUpMobile;
 
 
 

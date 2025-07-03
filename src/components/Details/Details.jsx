@@ -4,10 +4,13 @@ import AboutBook from './AboutBook'
 import BookDelivery from './BookDelivery'
 import { getBooksById } from '../../services/api'
 import { useParams } from 'react-router-dom'
+import { RxCross2 } from "react-icons/rx";
+
 
 function Details() {
 
     const [books, setBooks] = useState([])
+    const [bookImageOpen, setBookImageOpen] = useState(false)
     const { id } = useParams()
 
     useEffect(() => {
@@ -20,11 +23,23 @@ function Details() {
         }
     }, [books.title]);
 
+    useEffect(() => {
+        const closeImage = (e) => {
+            if (e.key === "Escape") {
+                setBookImageOpen(false)
+            }
+        }
+        window.addEventListener("keydown", closeImage);
+        return () => window.removeEventListener("keydown", closeImage);
+    }, [])
+
     return (
         <div>
             <div>
                 <div className='lg:flex items-center justify-between container gap-10'>
-                    <div className='bg-[#F6F6F8] xl:w-[90%] lg:w-[95%] lg:rounded-lg '>
+                    <div
+                        onClick={() => setBookImageOpen(true)}
+                        className='bg-[#F6F6F8] xl:w-[90%] lg:w-[95%] lg:rounded-lg '>
                         <img src={books.imageSource}
                             className='w-[70%] lg:object-center lg:object-cover lg:w-[50%] mx-auto object-cover object-center'
                             alt="" />
@@ -39,7 +54,25 @@ function Details() {
                     <AboutBook books={books} />
                 </div>
             </div>
+
+            {bookImageOpen && (
+                <div className='fixed inset-0 bg-[#FFFFFF] transition-opacity flex flex-col items-center justify-center z-5000'>
+                    <button
+                        className='absolute top-2 right-5 text-[#767676] text-2xl'
+                        onClick={() => setBookImageOpen(false)}>
+                        <RxCross2 />
+                    </button>
+                    <div className='bg-[#E1E1E1] h-[1px] w-full my-6'></div>
+                    <img
+                        src={books.imageSource}
+                        alt={books.title}
+                        className='max-w-[90%] max-h-[90%] object-contain'
+                    />
+                </div>
+            )}
         </div>
+
+
     )
 }
 

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import logo from "../assets/images/logo/libraffLogo.png"
 import registrationImage from "../assets/images/authImages/registrationImage.svg"
 import { MdCardMembership } from "react-icons/md";
@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom';
 
 
 function Registration() {
+    
     return (
         <div className='container xl:flex xl:justify-between xl:items-center xl:gap-[70px]'>
 

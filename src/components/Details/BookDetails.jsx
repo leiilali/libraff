@@ -5,6 +5,7 @@ import { TbHeartFilled } from "react-icons/tb";
 import { BiMessageError } from "react-icons/bi";
 import { BASKET } from '../../context/BasketContext';
 import { WISHLIST } from '../../context/WishContext';
+import { FaCircleCheck } from "react-icons/fa6";
 import BasketPopUp from '../PopUps/BasketPopUp';
 import WishPopUp from '../PopUps/WishlistPopUp';
 import BasketPopUpMobile from '../PopUps/BasketPopUpMobile';
@@ -12,32 +13,18 @@ import WishlistPopUpMobile from '../PopUps/WishlistPopUpMobile';
 
 
 function BookDetails({ books }) {
-    const { addToBasket } = useContext(BASKET)
+    const { basket, addToBasket } = useContext(BASKET)
     const { wish, addWishList, deleteWishList } = useContext(WISHLIST)
-    const [showBasketPopup, setshowBasketPopup] = useState(false)
+    const [showBasketPopup, setShowBasketPopup] = useState(false)
     const [showWishPopup, setShowWishPopup] = useState(false);
     const [showBasketPopupMobile, setShowBasketPopupMobile] = useState(false)
     const [showWishPopupMobile, setShowWishPopupMobile] = useState(false)
 
     const isInWishlist = wish.some(w => w.id === books.id);
+    const inBasket = basket.find(item => item.id === books.id)
     const screenSize = () => window.innerWidth >= 640;
+    
 
-    // const toggleWishlist = (e) => {
-    //     e.preventDefault();
-    //     e.stopPropagation();
-
-    //     if (isInWishlist) {
-    //         deleteWishList(books.id);
-    //     } else {
-    //         addWishList(books);
-    //         if (screenSize()) {
-    //             setShowWishPopup(true);
-    //             setTimeout(() => {
-    //                 setShowWishPopup(false);
-    //             }, 3000);
-    //         }
-    //     }
-    // };
     const toggleWishlist = (e) => {
         e.preventDefault();
         e.stopPropagation();
@@ -54,32 +41,19 @@ function BookDetails({ books }) {
             }
         }
     };
-    // const handleAddToBasket = (e) => {
-    //     e.preventDefault();
-    //     e.stopPropagation();
 
-    //     addToBasket(books);
-    //     // addToBasket({ ...books, count: 1 }); 
-    //     if (screenSize()) {
-    //         setshowBasketPopup(true);
-    //         setTimeout(() => {
-    //             setshowBasketPopup(false);
-    //         }, 5000);
-    //     }
-    // };
     const handleAddToBasket = (e) => {
         e.preventDefault();
         e.stopPropagation();
 
         addToBasket(books);
         if (screenSize()) {
-            setshowBasketPopup(true);
-            setTimeout(() => setshowBasketPopup(false), 5000);
+            setShowBasketPopup(true);
+            setTimeout(() => setShowBasketPopup(false), 5000);
         } else {
             setShowBasketPopupMobile(true);
         }
     };
-
 
     return (
         <div>
@@ -87,8 +61,6 @@ function BookDetails({ books }) {
             {showWishPopup && <WishPopUp book={books} closePopup={() => setShowWishPopup(false)} />}
             {showBasketPopupMobile && <BasketPopUpMobile book={books} closePopup={() => setShowBasketPopupMobile(false)} />}
             {showWishPopupMobile && <WishlistPopUpMobile book={books} closePopup={() => setShowWishPopupMobile(false)} />}
-
-
 
             <div className='mt-10 nunito-font'>
                 <div className='sm:container'>
@@ -102,13 +74,17 @@ function BookDetails({ books }) {
                         <span className='px-[6px] py-[2px] bg-[#ee2d39] font-light text-white rounded-md text-[12px]'>{books.discountPercentage}%</span>
                     </div>
                 </div>
-                <div className='sm:container '>
+                <div className='sm:container relative '>
                     <button
                         onClick={handleAddToBasket}
-                        className='bg-[#ef3344] hover:bg-[#F24B56] font-semibold text-white text-[18px] flex items-center justify-center gap-2 py-3 mx-auto w-full rounded-full'>
-                        <RiShoppingBag4Line className=" text-white cursor-pointer !text-[25px]" />
+                        className='bg-[#ef3344] hover:bg-[#F24B56] font-semibold text-white text-[18px] flex items-center justify-center gap-2 py-3 mx-auto w-full rounded-full relative'
+                    >
+                        <RiShoppingBag4Line className="text-white cursor-pointer !text-[25px]" />
                         Səbətə əlavə et
                     </button>
+                    {inBasket && (
+                        <FaCircleCheck className="text-[#0f172a] bg-white rounded-full text-[16px] absolute top-0 right-1 border-1 border-white shadow-md" />
+                    )}
                 </div>
                 <div className='flex items-center justify-between font-light '>
                     <div
