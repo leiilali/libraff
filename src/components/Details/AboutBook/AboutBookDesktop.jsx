@@ -2,7 +2,7 @@ import React from 'react'
 import { Tabs } from 'antd';
 import '../../../style/bookDetails.css'
 
-function AboutBookDesktop({books}) {
+function AboutBookDesktop({ books }) {
     return (
         <div>
             <div className="p-4 container ">

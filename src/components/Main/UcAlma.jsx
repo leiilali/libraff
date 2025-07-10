@@ -15,7 +15,7 @@ function UcAlma() {
             </h2>
 
             <div className="grid xl:grid-cols-[450px_1fr_450px] items-stretch gap-4 mt-4">
-                {/* Left Column */}
+                {/* left column */}
                 <div className="grid grid-rows-2 gap-2">
                     <Link to="/kitab/35">
                         <div className='flex items-center bg-[#F9FAFC] rounded-2xl h-full'>
@@ -48,7 +48,7 @@ function UcAlma() {
                     </Link>
                 </div>
 
-                {/* Middle Column */}
+                {/* middle column */}
                 <Link to="/kitab/34">
                     <div className='bg-[#FFF3C7] rounded-2xl h-full flex flex-col justify-between'>
                         <div className='flex flex-col items-center'>
@@ -66,7 +66,7 @@ function UcAlma() {
                     </div>
                 </Link>
 
-                {/* Right Column */}
+                {/* right column */}
                 <div className="grid grid-rows-2 gap-2">
                     <Link to="/kitab/33">
                         <div className='flex items-center bg-[#F8FFE7] rounded-2xl h-full'>

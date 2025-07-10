@@ -4,8 +4,6 @@ import { FcGoogle } from "react-icons/fc";
 import loginImg from "../assets/images/authImages/loginImage.svg"
 import logo from "../assets/images/logo/libraffLogo.png"
 
-
-
 function LoginPage() {
     return (
         <div className='container xl:flex xl:justify-between xl:items-center xl:gap-[70px] '>

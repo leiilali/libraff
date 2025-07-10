@@ -11,7 +11,6 @@ import WishPopUp from '../PopUps/WishlistPopUp';
 import BasketPopUpMobile from '../PopUps/BasketPopUpMobile';
 import WishlistPopUpMobile from '../PopUps/WishlistPopUpMobile';
 
-
 function BookDetails({ books }) {
     const { basket, addToBasket } = useContext(BASKET)
     const { wish, addWishList, deleteWishList } = useContext(WISHLIST)
@@ -24,7 +23,6 @@ function BookDetails({ books }) {
     const inBasket = basket.find(item => item.id === books.id)
     const screenSize = () => window.innerWidth >= 640;
     
-
     const toggleWishlist = (e) => {
         e.preventDefault();
         e.stopPropagation();
@@ -57,7 +55,7 @@ function BookDetails({ books }) {
 
     return (
         <div>
-            {showBasketPopup && <BasketPopUp book={books} closePopup={() => setshowBasketPopup(false)} />}
+            {showBasketPopup && <BasketPopUp book={books} closePopup={() => setShowBasketPopup(false)} />}
             {showWishPopup && <WishPopUp book={books} closePopup={() => setShowWishPopup(false)} />}
             {showBasketPopupMobile && <BasketPopUpMobile book={books} closePopup={() => setShowBasketPopupMobile(false)} />}
             {showWishPopupMobile && <WishlistPopUpMobile book={books} closePopup={() => setShowWishPopupMobile(false)} />}

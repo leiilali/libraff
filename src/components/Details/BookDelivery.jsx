@@ -2,7 +2,6 @@ import React from 'react'
 import { FaShop } from "react-icons/fa6";
 import { FaTruckFast } from "react-icons/fa6";
 
-
 function BookDelivery() {
     return (
         <div>

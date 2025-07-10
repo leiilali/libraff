@@ -14,13 +14,13 @@
 :where(.css-dev-only-do-not-override-mc1tut).ant-tabs .ant-tabs-tab {
     padding: 5px 0;
 }
+
 .custom-tabs .ant-tabs-tab-active .nunito-font {
     color: #0f172a !important;
-  }
+}
 
 .custom-tabs .ant-tabs-nav-list {
     display: flex;
     justify-content: center;
     gap: 270px;
 }
-

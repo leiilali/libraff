@@ -2,8 +2,7 @@ import { Collapse } from 'antd';
 import React from 'react'
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
 
-
-function AboutBookMobile({books}) {
+function AboutBookMobile({ books }) {
     const items = [
         {
             key: '1',

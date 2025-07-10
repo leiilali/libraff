@@ -33,9 +33,9 @@ function BookCards({ cardFor = 'main', item }) {
 
     return (
         <>
-            {showWishPopup && (<WishPopUp book={item} closePopup={() => setShowWishPopup(false)} />)}
+            {/* {showWishPopup && (<WishPopUp book={item} closePopup={() => setShowWishPopup(false)} />)} */}
             <Link to={`/kitab/${item.id}`}>
-                <div className='group py-5 relative hover:shadow-2xl transition duration-300 rounded-2xl'>
+                <div className='group py-5 px-1 relative hover:shadow-2xl transition duration-300 rounded-2xl'>
                     <div
                         className={`absolute xl:right-2 top-7 right-1.5 transition-opacity duration-200 ${cardFor === 'wishlist' ? 'opacity-100' : isInWishlist ? 'opacity-100' : 'group-hover:opacity-100 opacity-0'
                             }`}

@@ -47,9 +47,6 @@ function FooterDesktop() {
                     </p>
                 </div>
             </div>
-
-
-
         </>
     )
 }

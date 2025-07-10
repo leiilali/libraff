@@ -12,8 +12,10 @@ function Landing() {
             <Outlet />
             <Footer />
 
-
+            {/* for mobile screen */}
             <BottomNavbar />
+
+            
             <div className='hidden xl:block'>
                 <HelpButton />
             </div>

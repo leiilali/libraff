@@ -1,32 +1,34 @@
 .custom-collapse .ant-collapse-item {
-    border-bottom: 1px solid #e5e7eb; /* Light gray line */
-  }
-  
-  .custom-collapse .ant-collapse {
-    border: none;
-  }
-  
-  .custom-collapse .ant-collapse-item:last-child {
-    border-bottom: none; /* optional: remove line from last item */
-  }
-  
-  .custom-collapse .ant-collapse-header {
-    padding-left: 0;
-    padding-right: 0;
-  }
-  .custom-collapse .ant-collapse-header {
-    background-color: transparent !important;
-    color: #0f172a !important;
-    cursor: default !important;  /* disables pointer cursor */
-    transition: none !important;  /* disable any hover transition */
-  }
-  
-  .custom-collapse .ant-collapse-header:hover {
-    background-color: transparent !important;
-    color: #0f172a !important;
-    cursor: default !important;
-    text-decoration: none !important;
-  }
-  :where(.css-dev-only-do-not-override-mc1tut) a:hover {
-    color: red;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.custom-collapse .ant-collapse {
+  border: none;
+}
+
+.custom-collapse .ant-collapse-item:last-child {
+  border-bottom: none;
+}
+
+.custom-collapse .ant-collapse-header {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.custom-collapse .ant-collapse-header {
+  background-color: transparent !important;
+  color: #0f172a !important;
+  cursor: default !important;
+  transition: none !important;
+}
+
+.custom-collapse .ant-collapse-header:hover {
+  background-color: transparent !important;
+  color: #0f172a !important;
+  cursor: default !important;
+  text-decoration: none !important;
+}
+
+:where(.css-dev-only-do-not-override-mc1tut) a:hover {
+  color: red;
 }

@@ -8,13 +8,6 @@ function FilterBarMobile() {
     const [activeKeys, setActiveKeys] = useState(['1']);
     const [checkedList, setCheckedList] = useState([]);
     const [priceRange, setPriceRange] = useState([0, 100]);
-    // const [minMax , setMinMax] = useState([0, 5])
-
-    // useEffect(()=>{
-    //     const sortByProduct = data.sort((a,b) => a.price - b.price)
-    //     const min = sortByProduct[0]?.price
-    //     const max = sortByProduct.at[-1]?.price
-    // }) 
     const languages = [
         {
             key: '1',

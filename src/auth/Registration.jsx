@@ -1,12 +1,10 @@
 import React, { useState } from 'react'
-import logo from "../assets/images/logo/libraffLogo.png"
-import registrationImage from "../assets/images/authImages/registrationImage.svg"
 import { MdCardMembership } from "react-icons/md";
 import { FcGoogle } from "react-icons/fc";
 import { FaCircleCheck } from "react-icons/fa6";
 import { Link } from 'react-router-dom';
-
-
+import registrationImage from "../assets/images/authImages/registrationImage.svg"
+import logo from "../assets/images/logo/libraffLogo.png"
 
 function Registration() {
     

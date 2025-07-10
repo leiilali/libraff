@@ -2,7 +2,6 @@ import React from 'react'
 import { MdOutlineClose } from "react-icons/md";
 import { Link } from 'react-router-dom';
 
-
 function WishPopUp({ book, closePopup }) {
     if (!book) return null;
 

@@ -13,7 +13,6 @@ function SearchPage() {
     const [page, setPage] = useState(1)
     const [object, setObject] = useState([])
 
-
     // for filtering book according price
     const [priceRange, setPriceRange] = useState([0, 100])
     const filteredBooks = results.filter(book => {
@@ -22,7 +21,6 @@ function SearchPage() {
             book.discountedPrice <= priceRange[1]
         );
     });
-
 
     const [sortOption, setSortOption] = useState("1")
     const sortBooks = (bookList, option) => {
@@ -57,8 +55,6 @@ function SearchPage() {
         document.title = "Axtarış nəticəsi"
     }, [])
 
-
-
     return (
         <div className='container flex items-start gap-8'>
 
@@ -73,7 +69,6 @@ function SearchPage() {
 
                 <div className='flex items-center justify-between'>
                     <h2 className='text-[28px] text-[#0f172a] font-semibold'>Axtarış nəticəsi</h2>
-                    {/* <p className='nunito-font text-[16px] font-light text-[#0f172a]'>Məhsul tapıldı: 10</p> */}
                     <p className='nunito-font text-[16px] font-light text-[#0f172a]'>
                         Məhsul tapıldı: {object.totalCount || 0}
                     </p>
@@ -84,11 +79,6 @@ function SearchPage() {
                         <div className='flex items-center gap-2'>
                             <h2 className='text-[14px] text-[#767676] font-light'>Çeşidlə:</h2>
                             <select
-                                // onChange={(e) => {
-                                //     const selected = e.target.value;
-                                //     setSortOption(selected);
-                                //     setBooks(sortBooks(books, selected)); 
-                                // }}
                                 onChange={(e) => {
                                     const selected = e.target.value;
                                     setSortOption(selected);
@@ -123,15 +113,6 @@ function SearchPage() {
                     </div>
                     <div>
                         <div>
-                            {/* {!Array.isArray(results) || results.length === 0 ? (
-                                <p className='text-center text-gray-500 mt-10'>Axtarış nəticəsi tapılmadı.</p>
-                            ) : (
-                                <div className='grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4'>
-                                    {results.map((book) => (
-                                        <BookCards key={book.id} item={book} />
-                                    ))}
-                                </div>
-                            )} */}
                             {filteredBooks.length > 0 ? (
                                 <div className='grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4'>
                                     {filteredBooks.map((book) => (
@@ -158,17 +139,6 @@ function SearchPage() {
                         </div>
                     </div>
                 </div>
-                {/* <div>
-                    {!Array.isArray(results) || results.length === 0 ? (
-                        <p className='text-center text-gray-500 mt-10'>Axtarış nəticəsi tapılmadı.</p>
-                    ) : (
-                        <div className='grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4'>
-                            {results.map((book) => (
-                                <BookCards key={book.id} item={book} />
-                            ))}
-                        </div>
-                    )}
-                </div> */}
             </div>
         </div>
 

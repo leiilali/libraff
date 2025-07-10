@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { HiChevronDown } from "react-icons/hi";
 
-
 function MessageUs() {
     const [isOpen, setIsOpen] = useState(false)
     return (

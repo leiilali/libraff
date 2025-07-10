@@ -1,12 +1,10 @@
 import React from 'react'
+import "../../style/footer.css"
 import { Collapse } from 'antd';
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
-import "../../style/footer.css"
 import { Link } from 'react-router-dom';
 
-
 function FooterMobile() {
-
     const items = [
         {
             key: '1',

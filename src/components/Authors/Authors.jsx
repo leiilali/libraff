@@ -5,16 +5,14 @@ function Authors() {
 
     const [data, setData] = useState([])
 
-
     useEffect(() => {
         getAllAuthors().then(response => setData(response))
     }, [])
-
-    useEffect(()=>{
+    useEffect(() => {
         document.title = "Müəlliflər | Libraff"
     }, [])
 
-    return ( 
+    return (
         <div>
             <div className="container ">
                 <h2 className='text-[28px] text-[#0f172a] my-5 font-semibold'>Müəliflər</h2>
@@ -27,7 +25,7 @@ function Authors() {
                                     <li key={author.id} className='text-[16px] cursor-pointer  text-[#ef3340] py-1'>
                                         {author.fullName}
                                     </li>
-                                ))}                            
+                                ))}
                             </ul>
                         </div>
                     ))}

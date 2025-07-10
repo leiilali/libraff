@@ -12,11 +12,11 @@ function BasketContext({ children }) {
     if (inBasket) {
       updatedBasket = basket.map(elem =>
         elem.id === item.id
-          ? { ...elem, count: elem.count + (item.count || 1) } // ✅ handles undefined count safely
+          ? { ...elem, count: elem.count + (item.count || 1) } 
           : elem
       );
     } else {
-      updatedBasket = [...basket, { ...item, count: item.count || 1 }]; // ✅ ensures count always present
+      updatedBasket = [...basket, { ...item, count: item.count || 1 }]; 
     }
     setBasket(updatedBasket);
     localStorage.setItem("basket", JSON.stringify(updatedBasket));
@@ -35,6 +35,7 @@ function BasketContext({ children }) {
     setBasket(basketArr)
     localStorage.setItem("basket", JSON.stringify(basketArr))
   }
+
   function clearBasket() {
     localStorage.removeItem("basket")
     setBasket([])

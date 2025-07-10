@@ -1,7 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
 
-
 function EmptyWishlist() {
     const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth >= 1024);
 

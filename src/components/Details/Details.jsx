@@ -1,18 +1,14 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { getBooksById } from '../../services/api'
+import { useParams } from 'react-router-dom'
+import { RxCross2 } from "react-icons/rx";
 import BookDetails from './BookDetails'
 import AboutBook from './AboutBook'
 import BookDelivery from './BookDelivery'
-import { getBooksByCategoryCode, getBooksById } from '../../services/api'
-import { useParams } from 'react-router-dom'
-import { RxCross2 } from "react-icons/rx";
-import BookCards from '../Main/BookCards'
-
 
 function Details() {
-
     const [books, setBooks] = useState([])
     const [bookImageOpen, setBookImageOpen] = useState(false)
-    const [similarProducts, setSimilarProducts] = useState([])
     const { id } = useParams()
 
     useEffect(() => {
@@ -35,7 +31,6 @@ function Details() {
         return () => window.removeEventListener("keydown", closeImage);
     }, [])
 
-    
     return (
         <div>
             <div>
@@ -56,8 +51,6 @@ function Details() {
                 <div className='my-[30px]'>
                     <AboutBook books={books} />
                 </div>
-
-
             </div>
 
             {bookImageOpen && (
@@ -75,10 +68,7 @@ function Details() {
                     />
                 </div>
             )}
-
         </div>
-
-
     )
 }
 

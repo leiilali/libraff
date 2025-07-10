@@ -13,6 +13,7 @@ function AboutBook({books}) {
                 <AboutBookMobile books={books} />
             </div>
 
+            {/* in case similar products */}
             {/* <div className="w-full h-[1px] bg-[#F0F0F0] my-6"></div> */}
         </div>
     );

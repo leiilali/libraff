@@ -37,11 +37,7 @@ function Main() {
             <div>
                 <UcAlma/>
             </div>
-
-            
-
         </div>
-        
     )
 }
 

@@ -13,7 +13,6 @@ function Kataloq() {
     const [activeCategory, setActiveCategory] = useState(null);
     const [activeSubCategory, setActiveSubCategory] = useState(null);
 
-
     const location = useLocation();
 
     useEffect(() => {
@@ -35,7 +34,7 @@ function Kataloq() {
                 </div>
             </div>
 
-            {/* Overlay */}
+            {/* overlay */}
             {isOpen && (
                 <div
                     onClick={() => setIsOpen(false)}
@@ -129,7 +128,6 @@ function Kataloq() {
                                 ))}
                         </ul>
                     </div>
-
                 </div>
             </div>
         </div>

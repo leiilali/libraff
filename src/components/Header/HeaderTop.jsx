@@ -43,14 +43,10 @@ function HeaderTop() {
                     </div>
                 </div>
 
-                {/* search bar for desktop */}
+                {/* searchbar for desktop */}
                 <div className='flex gap-5'>
-                    {/* <div className='hidden lg:flex justify-center items-center bg-[#EF3441] text-[#fff] text-2xl py-2.5 px-5 rounded-full  '>
-                        <AiOutlineAppstore />
-                        <h3 className='text-[16px] pl-1 hidden xl:inline font-medium'>Kataloq</h3>
-                    </div> */}
                     <Kataloq />
-                    <div className='border border-[#e2e8f0] bg-[#F9FAFC] rounded-full text-[16px] pr-4 w-[595px] font-light focus-within:ring-1 focus-within:ring-gray-300 focus-within:shadow-md transition hidden lg:flex xl:flex  '>
+                    <div className='border border-[#CBD5E1] bg-[#F9FAFC] rounded-full text-[16px] pr-4 w-[595px] font-light focus-within:ring-1 focus-within:ring-gray-300 focus-within:shadow-md transition hidden lg:flex xl:flex  '>
                         <input
                             onChange={(e) => { setInputValue(e.target.value) }}
                             onKeyDown={(e) => e.key === 'Enter' && handleSearch()}

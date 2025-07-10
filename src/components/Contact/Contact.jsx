@@ -3,10 +3,9 @@ import GoogleMap from './GoogleMap';
 import BranchCard from './BranchCard';
 import MessageUs from './MessageUs';
 
-
 function Contact() {
 
-    useEffect(()=>{
+    useEffect(() => {
         document.title = "Əlaqə | Libraff"
     }, [])
 
@@ -31,11 +30,8 @@ function Contact() {
                             <li className='nunito-font text-[#0f172a] text-[14px] font-light py-[6px]'>Şənbə və Bazar: 09:00 - 15:00</li>
                         </ul>
 
-                        <p className='nunito-font text-[#0f172a] text-[14px] font-light py-[6px]'>Korporativ satış üçün əlaqə:<span className='text-[#ef3340]'>+994 50 290 78 11 – zinyat.nuriyeva@libraff.az</span></p>
-
-
+                        <p className='nunito-font text-[#0f172a] text-[14px] font-light py-[6px]'>Korporativ satış üçün əlaqə: <span className='text-[#ef3340]'>+994 50 290 78 11 – zinyat.nuriyeva@libraff.az</span> </p>
                     </div>
-
 
                     <div className='lg:w-[50%] py-10'>
                         <div className="w-full h-[250px] overflow-hidden shadow-lg">
@@ -44,7 +40,6 @@ function Contact() {
                     </div>
                 </div>
 
-
                 <div className='my-20'>
                     <BranchCard />
                 </div>
@@ -52,10 +47,6 @@ function Contact() {
                 <div className='my-20'>
                     <MessageUs />
                 </div>
-
-
-
-
             </div>
         </div>
     )

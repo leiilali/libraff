@@ -118,7 +118,6 @@ function FilterSidebar({ priceRange, setPriceRange }) {
         },
     ];
 
-
     const customExpandIcon = ({ isActive }) =>
         isActive ? (
             <LuMinus style={{ fontSize: 23, color: '#A2A2A2' }} />

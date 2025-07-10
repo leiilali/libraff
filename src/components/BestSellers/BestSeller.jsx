@@ -5,10 +5,9 @@ import { Link } from 'react-router-dom';
 
 function BestSeller() {
     const [activeLanguage, setActiveLanguage] = useState('Azərbaycan');
-    const languages = ['Azərbaycan', 'Türkcə', 'Rusca', 'Uşaq Ədəbiyyatı'];
-
     const [bestSeller, setBestSeller] = useState([]);
 
+    const languages = ['Azərbaycan', 'Türkcə', 'Rusca', 'Uşaq Ədəbiyyatı'];
     const languageMap = {
         'Azərbaycan': 'AZE',
         'Türkcə': 'TUR',
@@ -26,8 +25,6 @@ function BestSeller() {
         document.title = "Bestsellerlər | Libraff"
     }, [])
 
-    // const selectedLangCode = languageMap[activeLanguage];
-    // const filteredBooks = bestSeller.filter(book => book.language === selectedLangCode);
     let filteredBooks = [];
     if (activeLanguage === 'Uşaq Ədəbiyyatı') {
         filteredBooks = bestSeller.filter(book => book.categoryCode === 'usaqedebiyyati');

@@ -49,22 +49,6 @@ function MainSwiper() {
                 modules={[Pagination, Autoplay]}
                 className="w-full h-full"
             >
-                {/* {
-                    bannerData.map((item, index) => (
-                        <SwiperSlide key={index}>
-                            <Link to={`/kitab/${item.id}`}>
-                                <picture>
-                                    <source srcSet={item.sm} media="(max-width: 640px)" />
-                                    <img
-                                        src={item.lg}
-                                        alt={`hero_banner_${index}`}
-                                        className="w-full h-[400px] sm:h-[400px] md:h-[500px] object-cover object-center"
-                                    />
-                                </picture>
-                            </Link>
-                        </SwiperSlide>
-                    ))
-                } */}
                 {
                     bannerData.map((item, index) => (
                         <SwiperSlide key={index}>
