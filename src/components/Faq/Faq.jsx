@@ -28,7 +28,7 @@ function Faq() {
                         items={[{
                             key: '1',
                             label: (
-                                <span className="text-[16px] xl:text-[16px] xl:text-[24px] font-medium">
+                                <span className="text-[16px] xl:text-[24px] font-medium">
                                     Sual - Məhsullarınızı necə sifariş edə bilərəm?
                                 </span>
                             ), children: (
