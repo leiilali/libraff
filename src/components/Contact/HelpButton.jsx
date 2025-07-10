@@ -38,14 +38,14 @@ function HelpButton() {
             }}
           >
             <span
-              className="mr-2 nunito-font text-[12px] group-hover:bg-[#1F40B0] text-white bg-[#2563EB] font-light px-2 py-1.5 rounded-sm shadow-md"
+              className="mr-2 nunito-font text-[12px] group-hover:bg-[#1F40B0] cursor-pointer text-white bg-[#2563EB] font-light px-2 py-1.5 rounded-sm shadow-md"
               style={{ whiteSpace: 'nowrap' }}
             >
               {btn.label}
             </span>
 
             <button
-              className="w-[60px] h-[60px] rounded-full text-white flex group-hover:bg-[#1F40B0] bg-[#2563EB] items-center justify-center shadow-lg transition-colors duration-200"
+              className="w-[60px] h-[60px] rounded-full text-white flex group-hover:bg-[#1F40B0] cursor-pointer bg-[#2563EB] items-center justify-center shadow-lg transition-colors duration-200"
             >
               {btn.icon}
             </button>
@@ -54,7 +54,7 @@ function HelpButton() {
 
         <button
           onClick={() => setIsOpen((prev) => !prev)}
-          className="relative z-50 w-[60px] h-[60px] bg-[#1F40B0] rounded-full text-white flex items-center justify-center shadow-lg transition-colors duration-200"
+          className="relative z-50 w-[60px] h-[60px] bg-[#1F40B0] cursor-pointer rounded-full text-white flex items-center justify-center shadow-lg transition-colors duration-200"
         >
           {isOpen ? <AiOutlineClose size={30} /> : <BsChatDots size={33} />}
         </button>
