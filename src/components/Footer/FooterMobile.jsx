@@ -33,7 +33,7 @@ function FooterMobile() {
                     <li><a href="">Dəyişdirilmə və qaytarılma</a></li>
                     <li><Link to={"/odenis-ve-catdirilma"}>Ödəniş və çatdırılma</Link></li>
                     <li><a href="">Sifarişiniz haqqında</a></li>
-                    <li><a href="">Seçilmişlər</a></li>
+                    <li><Link to={"/wishlist-view"}>Seçilmişlər</Link></li>
                 </ul>
         },
         {
