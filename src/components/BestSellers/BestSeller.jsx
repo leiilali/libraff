@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import BestSellerBooks from './BestSellerBooks';
 import { getBestSeller } from '../../services/api';
 import { Link } from 'react-router-dom';
+import Breadcrumbs from '../Main/Breadcrumbs';
 
 function BestSeller() {
     const [activeLanguage, setActiveLanguage] = useState('Azərbaycan');
@@ -35,8 +36,9 @@ function BestSeller() {
 
     return (
         <div className="container">
+             <Breadcrumbs/>
             <h2 className="text-[28px] text-[#0f172a] my-5 font-semibold">
-                May ayının ən çox satılan kitabları – Bestsellerlər (2025)
+                İyun ayının ən çox satılan kitabları – Bestsellerlər (2025)
             </h2>
 
             <div className="flex flex-col gap-y-6">

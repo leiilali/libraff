@@ -11,6 +11,7 @@ import FilterSidebar from './FilterSidebar';
 import CategoryBarMobile from './CategoryBarMobile';
 import FilterBarMobile from './FilterBarMobile';
 import '../../style/booksPagination.css'
+import Breadcrumbs from '../Main/Breadcrumbs';
 
 // helper function to find category hierarchy by code
 function findParentCategoryByCode(menu, targetCode) {
@@ -57,7 +58,7 @@ function SubCategory() {
             book.discountedPrice <= priceRange[1]
         );
     });
-    
+
 
     const location = useLocation();
     const { code } = location.state || {};
@@ -140,7 +141,16 @@ function SubCategory() {
                     {selectedCategory || 'Kateqoriyalar'}
                 </h2>
 
-                <div className='flex justif-between gap-8'> {/*items-start */}
+                <Breadcrumbs
+                    categories={[
+                        books.firstCategory,
+                        books.secondCategory,
+                        books.thirdCategory
+                    ].filter(Boolean)}
+                    currentTitle={books.title}
+                />
+                
+                <div className='flex justif-between gap-8 mt-5'> {/*items-start */}
                     <div className='hidden xl:flex flex-col gap-6 '>
                         <div className='w-20%'>
                             <CategorySidebar
@@ -272,7 +282,7 @@ function SubCategory() {
                         </button>
                     </div>
                     <div className='bg-[#D6D6D6] h-[1px] w-full'></div>
-                    
+
                     <div className='flex-1 overflow-auto p-3'>
                         {overlay === 'kateqoriyalar' && (
                             <div>
@@ -318,7 +328,11 @@ function SubCategory() {
 
                         {overlay === 'filterler' && (
                             <div>
-                                <FilterBarMobile />
+                                {/* <FilterBarMobile /> */}
+                                <FilterBarMobile
+                                    priceRange={priceRange}
+                                    setPriceRange={setPriceRange}
+                                />
                             </div>
                         )}
                     </div>

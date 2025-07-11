@@ -4,10 +4,24 @@ import { LuPlus, LuMinus } from 'react-icons/lu';
 import { IoMdCloseCircle } from "react-icons/io";
 import '../../style/filterSidebar.css';
 
-function FilterBarMobile() {
+function FilterBarMobile({ priceRange, setPriceRange }) {
     const [activeKeys, setActiveKeys] = useState(['1']);
     const [checkedList, setCheckedList] = useState([]);
-    const [priceRange, setPriceRange] = useState([0, 100]);
+
+    const handleInputChange = (e, type) => {
+        const value = Number(e.target.value)
+        if (isNaN(value)) return;
+        if (type === 'min') {
+            if (value <= priceRange[1] && value >= 0) {
+                setPriceRange([value, priceRange[1]]);
+            }
+        } else if (type === 'max') {
+            if (value >= priceRange[0] && value <= 100) {
+                setPriceRange([priceRange[0], value]);
+            }
+        }
+    }
+
     const languages = [
         {
             key: '1',
@@ -64,6 +78,9 @@ function FilterBarMobile() {
                                 min={0}
                                 max={priceRange[1]}
                                 value={priceRange[0]}
+                                onChange={(e) => {
+                                    handleInputChange(e, 'min')
+                                }}
                                 className="w-full outline-none text-sm"
                             />
                             <span className="text-xs text-[#666]">₼</span>
@@ -74,9 +91,12 @@ function FilterBarMobile() {
                         <div className="flex items-center gap-1 border border-[#E1E1E1] hover:border-[#EF3441] transition duration-300 rounded-md px-2 py-2 w-[45%]">
                             <input
                                 type="number"
-                                min={priceRange[0]}
                                 max={100}
+                                min={priceRange[0]}
                                 value={priceRange[1]}
+                                onChange={(e) => {
+                                    handleInputChange(e, 'max')
+                                }}
                                 className="w-full outline-none text-sm"
                             />
                             <span className="text-xs text-[#666]">₼</span>

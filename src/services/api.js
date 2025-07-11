@@ -1,41 +1,42 @@
-import axios from "axios"
+import { axiosInstance } from "./instance"
+
 
 async function getAllCategory() {
-    const res = await axios.get('https://api.baghirli.net/getCategories')
+    const res = await axiosInstance.get('/getCategories')
     return res.data
 }
 
 async function getAllAuthors() {
-    const res = await axios.get('https://api.baghirli.net/getAuthors')
+    const res = await axiosInstance.get('/getAuthors')
     return res.data
 }
 
 async function getThisWeeksMostViewedBooks() {
-    const res = await axios.get('https://api.baghirli.net/thisWeekMostViewedBooks')
+    const res = await axiosInstance.get('/thisWeekMostViewedBooks')
     return res.data
 }
 async function getMostSearchedBooks() {
-    const res = await axios.get('https://api.baghirli.net/mostSearchedBooks')
+    const res = await axiosInstance.get('/mostSearchedBooks')
     return res.data
 }
 async function getBooksByCategoryCode(code, pageNumber, pageCount) {
-    const res = await axios.get(`https://api.baghirli.net/getBooksByCategoryCode?code=${code}&pageNumber=${pageNumber}&pageCount=${pageCount}`)
+    const res = await axiosInstance.get(`/getBooksByCategoryCode?code=${code}&pageNumber=${pageNumber}&pageCount=${pageCount}`)
     return res.data
 }
 async function getBooksById(id) {
-    const res = await axios.get(`https://api.baghirli.net/getBookById?id=${id}`)
+    const res = await axiosInstance.get(`/getBookById?id=${id}`)
     return res.data
 }
 async function getBestSeller() {
-    const res = await axios.get('https://api.baghirli.net/getBestsellers')
+    const res = await axiosInstance.get('/getBestsellers')
     return res.data
 }
 async function getBooksBySearch(name, pageNumber, pageCount) {
-    const res = await axios.get(`https://api.baghirli.net/searchBook?searchQuery=${name}&pageNumber=${pageNumber}&pageCount=${pageCount}`)
+    const res = await axiosInstance.get(`/searchBook?searchQuery=${name}&pageNumber=${pageNumber}&pageCount=${pageCount}`)
     return res.data
 }
 async function getUcAlmaBooks() {
-    const res = await axios.get('https://api.baghirli.net/3AlmaMostRecents')
+    const res = await axiosInstance.get('/3AlmaMostRecents')
     return res.data
 }
 

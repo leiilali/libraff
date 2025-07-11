@@ -47,7 +47,7 @@ function BottomNavbarBasket({ setIsOpen }) {
                     ) : (
                         basket.map((item, index) => (
                             <div key={item.id} className="w-full">
-                                <Link to={`/kitab/${item.id}`} className='flex justify-between items-start'>
+                                <Link to={`/kitab/${item.id}`} onClick={() => setIsOpen(false)} className='flex justify-between items-start'>
                                     <div className='flex gap-4'>
                                         <div className='w-[40px] h-[50px]'>
                                             <img

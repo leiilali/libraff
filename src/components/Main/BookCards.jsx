@@ -33,7 +33,7 @@ function BookCards({ cardFor = 'main', item }) {
 
     return (
         <>
-            {/* {showWishPopup && (<WishPopUp book={item} closePopup={() => setShowWishPopup(false)} />)} */}
+            {showWishPopup && (<WishPopUp book={item} closePopup={() => setShowWishPopup(false)} />)}
             <Link to={`/kitab/${item.id}`}>
                 <div className='group py-5 px-1 relative hover:shadow-2xl transition duration-300 rounded-2xl'>
                     <div

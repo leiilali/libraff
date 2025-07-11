@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import GoogleMap from './GoogleMap';
 import BranchCard from './BranchCard';
 import MessageUs from './MessageUs';
+import Breadcrumbs from '../Main/Breadcrumbs';
 
 function Contact() {
 
@@ -12,7 +13,8 @@ function Contact() {
     return (
         <div>
             <div className="container">
-
+                
+                <Breadcrumbs/>
                 <h2 className='text-[28px] text-[#0f172a] my-5 font-semibold'>Mağazalar və Əlaqə</h2>
 
                 <div className='lg:flex'>

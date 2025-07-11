@@ -3,6 +3,7 @@ import { WISHLIST } from '../../context/WishContext';
 import { Link } from 'react-router-dom';
 import EmptyWishlist from './EmptyWishlist';
 import BookCards from '../Main/BookCards';
+import Breadcrumbs from '../Main/Breadcrumbs';
 
 function Wishlist() {
   const { wish, clearWishList } = useContext(WISHLIST)
@@ -13,6 +14,8 @@ function Wishlist() {
 
   return (
     <div className='container'>
+      <Breadcrumbs/>
+      <h2 className='text-[28px] text-[#0f172a] my-5 font-semibold'>Əlavə edilmişlər</h2>
       {wish.length === 0 ? (
         <div>
           <EmptyWishlist />

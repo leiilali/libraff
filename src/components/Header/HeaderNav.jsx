@@ -7,33 +7,33 @@ function HeaderNav() {
     <div>
       <div className='xl:flex hidden justify-between h-[45px] items-center'>
 
-        <ul className='flex gap-3 capitalize text-[#334155] font-semibold text-[15px] nunito-font'>
+        <ul className='flex gap-3 text-[#334155] font-semibold text-[15px] nunito-font'>
           <li>
-            <Link to={"/bestsellerler"}> bestseller </Link>
+            <Link to={"/bestsellerler"}> Bestseller </Link>
           </li>
           <li>
-            <Link to={"/kampaniyalar-az"}>endirimlər </Link>
+            <Link to={"/kampaniyalar-az"}>Endirimlər </Link>
           </li>
           <li>
-            <Link to={"/muellifler"}> müəlliflər </Link>
+            <Link to={"/muellifler"}> Müəlliflər </Link>
           </li>
           <li>
-            <Link to={"/klassiklr"} state={{ code: "klassikler_bedii" }} > klassiklər </Link>
+            <Link to={"/klassiklr"} state={{ code: "klassikler_bedii" }} > Klassiklər </Link>
           </li>
         </ul>
 
-        <ul className='flex gap-3 capitalize text-[#334155] font-light text-[15px]'>
+        <ul className='flex gap-3 text-[#334155] font-light text-[15px]'>
           <li>
-            <Link to={"/odenis-ve-catdirilma"}>ödəniş və çatdırılma</Link>
+            <Link to={"/odenis-ve-catdirilma"}>Ödəniş və çatdırılma</Link>
           </li>
           <li>
-            <Link to={"/loyalty-card"}>loyallıq kartı</Link>
+            <Link to={"/loyalty-card"}>Loyallıq kartı</Link>
           </li>
           <li>
             <Link to={"faq-az"}>FAQ</Link>
           </li>
           <li>
-            <Link to={"/bizimle-elaqe"}>əlaqə</Link>
+            <Link to={"/bizimle-elaqe"}>Əlaqə</Link>
           </li>
         </ul>
 

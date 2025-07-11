@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import aboutUs from "../../assets/images/navImages/aboutLibraff.jpg"
 import { Link } from 'react-router-dom'
+import Breadcrumbs from '../Main/Breadcrumbs'
 
 function AboutUs() {
 
@@ -11,6 +12,7 @@ function AboutUs() {
     return (
         <>
             <div className="container">
+                <Breadcrumbs />
                 <h2 className='text-[28px] text-[#0f172a] my-5 font-semibold'>Haqqımızda</h2>
                 <div>
                     <img src={aboutUs} alt="Haqqımızda" />

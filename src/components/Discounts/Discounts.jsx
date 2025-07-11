@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import discount2 from "../../assets/images/discountImages/discount2.webp"
+import Breadcrumbs from '../Main/Breadcrumbs'
 
 function Discounts() {
 
@@ -9,6 +10,7 @@ function Discounts() {
 
     return (
         <div className="container ">
+            <Breadcrumbs/>
             <h2 className='text-[28px] text-[#0f172a] my-5 font-semibold'>Kampaniyalar</h2>
 
             <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  gap-6'>

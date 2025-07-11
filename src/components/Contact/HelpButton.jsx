@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { IoChatboxEllipsesOutline } from 'react-icons/io5';
 import { AiOutlineClose } from 'react-icons/ai';
 import { FaWhatsapp } from 'react-icons/fa';
 import { RxEnvelopeClosed } from 'react-icons/rx';

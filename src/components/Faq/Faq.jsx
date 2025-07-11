@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { Collapse } from 'antd';
 import { RightOutlined } from '@ant-design/icons';
 import faq from "../../assets/images/navImages/faq.jpg"
+import Breadcrumbs from '../Main/Breadcrumbs';
 
 function Faq() {
     useEffect(() => {
@@ -11,6 +12,7 @@ function Faq() {
     return (
         <div>
             <div className="container">
+                <Breadcrumbs/>
                 <h2 className='text-[28px] text-[#0f172a] my-5 font-medium'>FAQ</h2>
                 <div>
                     <img src={faq} alt="FAQ" />

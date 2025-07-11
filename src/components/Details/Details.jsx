@@ -5,6 +5,7 @@ import { RxCross2 } from "react-icons/rx";
 import BookDetails from './BookDetails'
 import AboutBook from './AboutBook'
 import BookDelivery from './BookDelivery'
+import Breadcrumbs from '../Main/Breadcrumbs';
 
 function Details() {
     const [books, setBooks] = useState([])
@@ -34,7 +35,16 @@ function Details() {
     return (
         <div>
             <div>
-                <div className='lg:flex items-center justify-between container gap-10'>
+                <div className='container'>
+                    <Breadcrumbs
+                        categories={[
+                            books.firstCategory,
+                            books.secondCategory,
+                            books.thirdCategory
+                        ].filter(Boolean)}
+                        currentTitle={books.title}
+                    />
+                </div>                <div className='lg:flex items-center justify-between container gap-10'>
                     <div
                         onClick={() => setBookImageOpen(true)}
                         className='bg-[#F6F6F8] xl:w-[90%] lg:w-[95%] lg:rounded-lg '>

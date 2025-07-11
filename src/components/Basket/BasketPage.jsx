@@ -4,9 +4,10 @@ import { FaRegCheckCircle } from "react-icons/fa";
 import { BASKET } from '../../context/BasketContext';
 import BasketPageMobile from './BasketPageMobile';
 import BasketPageDesktop from './BasketPageDesktop';
+import Breadcrumbs from '../Main/Breadcrumbs';
 
 function BasketPage() {
-    const { basket, deleteBasket, clearBasket, addToBasket, updateItemCount} = useContext(BASKET);
+    const { basket, deleteBasket, clearBasket, addToBasket, updateItemCount } = useContext(BASKET);
 
     useEffect(() => {
         document.title = "Səbət | Libraff"
@@ -14,7 +15,10 @@ function BasketPage() {
 
     return (
         <div className='container'>
-            <h2 className='text-[28px] text-[#0f172a] my-5 font-semibold'>Səbətdə olanlar</h2>
+            <Breadcrumbs />
+            {basket?.length > 0 && (
+                <h2 className='text-[28px] text-[#0f172a] my-5 font-semibold'>Səbətdə olanlar</h2>
+            )}
 
             {/* desktop basket */}
             <div className="hidden md:block">

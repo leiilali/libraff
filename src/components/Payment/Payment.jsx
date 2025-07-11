@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import payment from "../../assets/images/navImages/payment.jpg"
+import Breadcrumbs from '../Main/Breadcrumbs'
 
 function Payment() {
 
@@ -11,6 +12,7 @@ function Payment() {
         <>
             <div className="container">
 
+                <Breadcrumbs/>
                 <h2 className='text-[28px] text-[#0f172a] my-5 font-semibold'>Ödəniş və çatdırılma</h2>
 
                 <div>

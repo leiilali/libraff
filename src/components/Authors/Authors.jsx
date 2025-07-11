@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { getAllAuthors } from '../../services/api'
+import Breadcrumbs from '../Main/Breadcrumbs'
 
 function Authors() {
 
@@ -15,6 +16,7 @@ function Authors() {
     return (
         <div>
             <div className="container ">
+                <Breadcrumbs/>
                 <h2 className='text-[28px] text-[#0f172a] my-5 font-semibold'>Müəliflər</h2>
                 <div className='grid xl:grid-cols-6 lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 nunito-font'>
                     {data?.authors?.map((item) => (

@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import loyaltyCard from "../../assets/images/navImages/loyalty.jpg"
+import Breadcrumbs from '../Main/Breadcrumbs'
 
 function LoyaltyCard() {
 
@@ -11,6 +12,7 @@ function LoyaltyCard() {
         <>
             <div className="container">
 
+                <Breadcrumbs/>
                 <h2 className='text-[28px] text-[#0f172a] my-5 font-semibold'>Loyallıq Kartı</h2>
 
                 <div>
