@@ -15,8 +15,6 @@ function EmptyWishlist() {
 
     return (
         <div>
-            <h2 className="text-[28px] text-[#0f172a] my-5 font-semibold">Əlavə edilmişlər</h2>
-
             {isLargeScreen ? (
                 <div className="grid grid-cols-4 gap-4">
                     {Array(4)
