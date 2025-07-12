@@ -52,14 +52,20 @@ function SubCategory() {
 
     // for filtering book according price
     const [priceRange, setPriceRange] = useState([0, 100])
+    // const filteredBooks = books.filter(book => {
+    //     return (
+    //         book.discountedPrice >= priceRange[0] &&
+    //         book.discountedPrice <= priceRange[1]
+    //     );
+    // });
     const filteredBooks = books.filter(book => {
-        return (
-            book.discountedPrice >= priceRange[0] &&
-            book.discountedPrice <= priceRange[1]
-        );
-    });
-
-
+        const discounted = Number(book.discountedPrice);
+        const min = Number(priceRange[0]);
+        const max = Number(priceRange[1]);
+        return discounted >= min && discounted <= max;
+      });
+    
+    
     const location = useLocation();
     const { code } = location.state || {};
     const closeOverlay = () => setOverlay(null);
@@ -149,7 +155,7 @@ function SubCategory() {
                     ].filter(Boolean)}
                     currentTitle={books.title}
                 />
-                
+
                 <div className='flex justif-between gap-8 mt-5'> {/*items-start */}
                     <div className='hidden xl:flex flex-col gap-6 '>
                         <div className='w-20%'>
